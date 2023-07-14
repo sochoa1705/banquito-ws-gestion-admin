@@ -9,8 +9,8 @@ import lombok.Data;
 @Builder
 public class HolidayRS {
     private Date holidayDate;
-    private String locationId; 
-    private String countryId; 
+    private String location; 
+    private String country; 
     private String name;
     private String type;
 }

@@ -2,6 +2,8 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto;
 
 import java.util.Date;
 
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -9,8 +11,10 @@ import lombok.Data;
 @Builder
 public class HolidayRQ {  
     private Date holidayDate;
-    private String locationId; 
-    private String countryId; 
+    @DBRef
+    private String location; 
+    @DBRef
+    private String country; 
     private String name;
     private String type;
 }
