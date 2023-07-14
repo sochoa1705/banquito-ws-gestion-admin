@@ -60,17 +60,15 @@ public class GeoStructureService {
     public GeoStructureRS findLocationParent(GeoLocationRQ locationRQ) {
         try {
             GeoLocation locationTemp = this.geoLocationService.transformLocationRQ(locationRQ);
-            List<GeoLocation> locationList = new ArrayList<>();
             Optional<GeoLocation> locationOpt = this.geoLocationRepository.findGeoLocationByLocationParentAndName(locationTemp.getLocationParent(), locationTemp.getName());
             if (locationOpt.isPresent()) {
                 GeoLocation location = locationOpt.get();
-                locationList.add(location);
-                return this.responseGeoStructure(this.geoStructureRepository.findGeoStructureByLocationsContaining(locationList));
+                return this.responseGeoStructure(this.geoStructureRepository.findGeoStructureByLocations(location.getId()));
             } else {
-                throw new RuntimeException("Error");
+                throw new RuntimeException("Error al obtener la información de ubicación");
             }
         } catch (RuntimeException rte) {
-            throw new RuntimeException("Error al obtener la información de la ubicación");
+            throw new RuntimeException("Error al obtener la información de la estructura geográfica");
         }
 
     }

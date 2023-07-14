@@ -11,6 +11,5 @@ import java.util.List;
 public class GeoStructureRS {
     private Integer levelCode;
     private String name;
-    private String state;
     private List<GeoLocation> locations;
 }
