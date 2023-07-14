@@ -1,14 +1,12 @@
-package ec.edu.espe.arquitectura.banquitowsgestionadmin.model;
+package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto;
 
 import java.util.Date;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-
-public class Branch {
-
+@Builder
+public class BranchRS {
     private String locationId;
     private String code;
     private String name;
@@ -23,5 +21,4 @@ public class Branch {
     private Float longitude;
     private String status;
     private Integer version;
-
 }
