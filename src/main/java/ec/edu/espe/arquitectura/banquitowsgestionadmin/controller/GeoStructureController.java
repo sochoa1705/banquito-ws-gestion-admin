@@ -7,9 +7,13 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.service.GeoStructureServi
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/api/v1/geo-structure")
 public class GeoStructureController {
-    private GeoStructureService geoStructureService;
+    private final GeoStructureService geoStructureService;
 
     public GeoStructureController(GeoStructureService geoStructureService) {
         this.geoStructureService = geoStructureService;
