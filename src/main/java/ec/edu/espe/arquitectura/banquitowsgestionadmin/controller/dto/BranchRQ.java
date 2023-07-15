@@ -5,8 +5,10 @@ import lombok.Data;
 
 @Data
 @Builder
-public class CountryRS {
+public class BranchRQ {
     private String code;
-    private String name;
-    private String phoneCode;
+    private String name;    
+    private String emailAddress;
+    private String phoneNumber;
+    
 }

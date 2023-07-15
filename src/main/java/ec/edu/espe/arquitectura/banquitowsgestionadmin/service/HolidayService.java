@@ -1,6 +1,8 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -13,19 +15,34 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.HolidayReposit
 public class HolidayService {
     
     private final HolidayRepository holidayRepository;
-    private final GeoLocationRepository geoLocationRepository;
 
-    public HolidayService(HolidayRepository holidayRepository, GeoLocationRepository geoLocationRepository) {
+    public HolidayService(HolidayRepository holidayRepository) {
         this.holidayRepository = holidayRepository;
-        this.geoLocationRepository = geoLocationRepository;
     }
 
     public List<Holiday> getAllHolidays() {
-        return holidayRepository.findAll();
+        return this.holidayRepository.findAll();
     }
 
-    public List<Holiday> getAllHolidaysWithLocation() {
-        List<Holiday> holidays = holidayRepository.findAll();   
-        return holidays;
+    public Holiday obtainHoliday(String holidayId){
+        try{
+            return this.holidayRepository.findById(holidayId)
+                    .orElse(null);
+        }catch(RuntimeException ex){
+            throw ex;
+        }
+    }
+
+    public Holiday createHoliday(Holiday holiday){
+        try{
+            Optional<Holiday> optionalHoliday = this.holidayRepository.findById(holiday.getId());
+            if(!optionalHoliday.isPresent()){
+                return this.holidayRepository.save(holiday);
+            }else{
+                throw new RuntimeException("Holiday already exists!");
+            }
+        }catch (RuntimeException re){
+            throw re;
+        }
     }
 }

@@ -5,8 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class CountryRS {
-    private String code;
+public class BankEntityRS {
     private String name;
-    private String phoneCode;
+    private String internationalCode;
 }

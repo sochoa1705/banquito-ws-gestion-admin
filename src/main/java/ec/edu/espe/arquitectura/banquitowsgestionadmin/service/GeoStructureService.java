@@ -3,53 +3,58 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.service;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoLocationRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructureRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructureRS;
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Country;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.GeoLocation;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.GeoStructure;
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.CountryRepository;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.GeoLocationRepository;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.GeoStructureRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class GeoStructureService {
 
     private final GeoStructureRepository geoStructureRepository;
     private final GeoLocationRepository geoLocationRepository;
+    private final CountryRepository countryRepository;
     private final GeoLocationService geoLocationService;
 
-    public GeoStructureService(GeoStructureRepository geoStructureRepository, GeoLocationRepository geoLocationRepository, GeoLocationService geoLocationService) {
+    public GeoStructureService(GeoStructureRepository geoStructureRepository, GeoLocationRepository geoLocationRepository, CountryRepository countryRepository, GeoLocationService geoLocationService) {
         this.geoStructureRepository = geoStructureRepository;
         this.geoLocationRepository = geoLocationRepository;
+        this.countryRepository = countryRepository;
         this.geoLocationService = geoLocationService;
     }
 
-    public void createGeoStructure(GeoStructureRQ geoStructureRQ) {
+    public void createGeoStructure(GeoStructureRQ geoStructureRQ, String countryCode) {
         try {
             GeoStructure geoStructure = transformGeoStructureRQ(geoStructureRQ);
+            Country country = this.countryRepository.findByCode(countryCode);
             switch (geoStructure.getLevelCode()) {
-                case 1:
+                case 1 -> {
                     List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCode("170101");
                     geoStructure.setLocations(provinceList);
                     geoStructure.setState("ACT");
+                    geoStructure.setCountry(country);
                     this.geoStructureRepository.save(geoStructure);
-                    break;
-                case 2:
+                }
+                case 2 -> {
                     List<GeoLocation> cantonList = this.geoLocationRepository.findGeoLocationByZipCode("200202");
                     geoStructure.setLocations(cantonList);
                     geoStructure.setState("ACT");
                     this.geoStructureRepository.save(geoStructure);
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     List<GeoLocation> parishList = this.geoLocationRepository.findGeoLocationByZipCode("230303");
                     geoStructure.setLocations(parishList);
                     geoStructure.setState("ACT");
                     this.geoStructureRepository.save(geoStructure);
-                    break;
-                default:
-                    throw new RuntimeException("Error al crear la estructura geográfica");
+                }
+                default -> throw new RuntimeException("Error al crear la estructura geográfica");
             }
 
         } catch (RuntimeException rte) {
@@ -60,17 +65,14 @@ public class GeoStructureService {
     public GeoStructureRS findLocationParent(GeoLocationRQ locationRQ) {
         try {
             GeoLocation locationTemp = this.geoLocationService.transformLocationRQ(locationRQ);
-            List<GeoLocation> locationList = new ArrayList<>();
-            Optional<GeoLocation> locationOpt = this.geoLocationRepository.findGeoLocationByLocationParentAndName(locationTemp.getLocationParent(), locationTemp.getName());
-            if (locationOpt.isPresent()) {
-                GeoLocation location = locationOpt.get();
-                locationList.add(location);
-                return this.responseGeoStructure(this.geoStructureRepository.findGeoStructureByLocationsContaining(locationList));
+            GeoLocation location = this.geoLocationRepository.findGeoLocationByNameAndZipCode(locationTemp.getName(), locationTemp.getZipCode());
+            if (location != null) {
+                return this.responseGeoStructure(this.geoStructureRepository.findGeoStructureByLocations(location.getId()));
             } else {
-                throw new RuntimeException("Error");
+                throw new RuntimeException("Error al obtener la información de ubicación");
             }
         } catch (RuntimeException rte) {
-            throw new RuntimeException("Error al obtener la información de la ubicación");
+            throw new RuntimeException("Error al obtener la información de la estructura geográfica");
         }
 
     }

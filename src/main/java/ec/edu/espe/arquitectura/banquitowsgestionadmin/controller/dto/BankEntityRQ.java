@@ -1,6 +1,6 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto;
 
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.GeoLocation;
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Branch;
 import lombok.Builder;
 import lombok.Data;
 
@@ -8,8 +8,8 @@ import java.util.List;
 
 @Data
 @Builder
-public class GeoStructureRS {
-    private Integer levelCode;
+public class BankEntityRQ {
     private String name;
-    private List<GeoLocation> locations;
+    private String internationalCode;
+    private List<Branch> branches;
 }

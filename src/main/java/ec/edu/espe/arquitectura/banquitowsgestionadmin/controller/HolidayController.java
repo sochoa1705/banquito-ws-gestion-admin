@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.GeoLocation;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Holiday;
@@ -23,14 +20,20 @@ public class HolidayController {
         this.holidayService = holidayService;
     }
 
-    @GetMapping("/holidays")
+    @GetMapping("/holiday-list")
     public ResponseEntity<List<Holiday>> getAllHolidays() {
-        List<Holiday> holidays = holidayService.getAllHolidays();
-        return new ResponseEntity<>(holidays, HttpStatus.OK);
+        return ResponseEntity.ok(holidayService.getAllHolidays());
     }
 
-    @GetMapping("/holidays-location")
-    public List<Holiday> getAllHolidaysWithLocation() {
-        return holidayService.getAllHolidaysWithLocation();
+    @GetMapping("/holiday-get/{holidayId}")
+    public ResponseEntity<Holiday> obtainHoliday(@PathVariable(name = "holidayId") String holidayId) {
+        return ResponseEntity.ok(holidayService.obtainHoliday(holidayId));
     }
+
+    @PostMapping("/holiday-create")
+    public ResponseEntity<Holiday> createHoliday(@RequestBody Holiday holiday){
+        return ResponseEntity.ok(holidayService.createHoliday(holiday));
+    }
+
+
 }
