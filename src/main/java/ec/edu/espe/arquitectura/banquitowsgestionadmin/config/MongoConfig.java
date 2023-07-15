@@ -1,8 +1,5 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.config;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
-
 import org.bson.types.Decimal128;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -15,9 +12,11 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
+import java.math.BigDecimal;
+import java.util.Arrays;
+
 @Configuration
 public class MongoConfig extends AbstractMongoClientConfiguration {
-
     @Value("${spring.data.mongodb.database}")
     private String databaseName;
 
@@ -63,6 +62,5 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
         return new MongoCustomConversions(Arrays.asList(decimal128ToBigDecimal, bigDecimalToDecimal128));
     }
-    
-    
+
 }
