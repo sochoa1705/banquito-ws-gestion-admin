@@ -15,5 +15,7 @@ public class GeoStructure {
     private Integer levelCode;
     private String name;
     private String state;
+    private Country country;
     private List<GeoLocation> locations;
+
 }
