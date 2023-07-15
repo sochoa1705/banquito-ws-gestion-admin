@@ -15,7 +15,7 @@ public class BankEntityService {
     }
 
     public BankEntity obtain(String id, String internationalCode){
-        return this.bankEntityRepository.findByIdAndInternationalCode(id, internationalCode);
+        return this.bankEntityRepository.findBankEntityByIdAndInternationalCode(id, internationalCode);
     }
     
 }

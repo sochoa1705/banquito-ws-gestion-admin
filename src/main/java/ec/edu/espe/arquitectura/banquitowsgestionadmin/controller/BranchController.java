@@ -17,7 +17,7 @@ import jakarta.websocket.server.PathParam;
 @RequestMapping("/api/v1/branch")
 public class BranchController {
 
-    private final BranchService service;
+    /*private final BranchService service;
 
     public BranchController(BranchService service){
         this.service = service;
@@ -33,6 +33,6 @@ public class BranchController {
     public ResponseEntity<List<Branch>> listByName(@PathParam("name") String name) {
         List<Branch> branchs = this.service.listByName(name);
         return ResponseEntity.ok(branchs);
-    }
-    
+
+    }*/
 }

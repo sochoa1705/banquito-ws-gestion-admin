@@ -13,7 +13,6 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.service.BankEntityService
 
 @RestController
 @RequestMapping("/api/v1/bankEntity")
-
 public class BankEntityController {
 
     private final BankEntityService service;
@@ -24,8 +23,9 @@ public class BankEntityController {
     }
 
     @GetMapping("/{id}/{internationalCode}")
-    public ResponseEntity<BankEntity> findByPk(@PathVariable("id") String id, @PathVariable("internationalCode") String internationalCode){
-        return ResponseEntity.ok(this.service.obtain(id, internationalCode));
+    public ResponseEntity<BankEntity> findByPK(@PathVariable("id") String id, @PathVariable("internationalCode") String internationalCode){
+        BankEntity rs = this.service.obtain(id, internationalCode);
+        return ResponseEntity.ok(rs);
     }
     
 }
