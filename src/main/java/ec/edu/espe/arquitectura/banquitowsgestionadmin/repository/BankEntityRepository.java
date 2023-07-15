@@ -7,5 +7,5 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.BankEntity;
 
 public interface BankEntityRepository extends MongoRepository<BankEntity, String> {
     
-    BankEntity findByIdAndInternationalCode(String id, String internationalCode);
+    BankEntity findBankEntityByIdAndInternationalCode(String id, String internationalCode);
 }

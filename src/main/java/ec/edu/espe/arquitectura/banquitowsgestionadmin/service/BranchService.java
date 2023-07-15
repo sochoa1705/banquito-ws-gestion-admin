@@ -7,7 +7,7 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.BranchReposito
 
 public class BranchService {
     
-    private final BranchRepository branchRepository;
+   /* private final BranchRepository branchRepository;
 
     public BranchService(BranchRepository branchRepository) {
         this.branchRepository = branchRepository;
@@ -19,5 +19,5 @@ public class BranchService {
 
     public List<Branch> listByName(String name){
         return this.branchRepository.findbyName(name);
-    }
+    }*/
 }

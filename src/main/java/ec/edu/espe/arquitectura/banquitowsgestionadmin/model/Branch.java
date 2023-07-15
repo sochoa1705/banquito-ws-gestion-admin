@@ -2,7 +2,8 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.model;
 
 import java.util.Date;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
+
 
 @Data
 @Builder
@@ -21,6 +22,6 @@ public class Branch {
     private Float latitude;
     private Float longitude;
     private String status;
-    private Integer version;
+
 
 }

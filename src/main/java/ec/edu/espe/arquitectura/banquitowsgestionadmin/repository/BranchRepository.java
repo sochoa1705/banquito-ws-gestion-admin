@@ -8,6 +8,6 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Branch;
 
 public interface BranchRepository extends MongoRepository <Branch, String> {
 
-    List <Branch> findbyName (String name);
+   // List <Branch> findbyName (String name);
     
 }
