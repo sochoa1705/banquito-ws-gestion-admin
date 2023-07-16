@@ -35,5 +35,37 @@ public class HolidayController {
         return ResponseEntity.ok(holidayService.createHoliday(holiday));
     }
 
+    @PostMapping("/holiday-generate/{year}/{month}/{saturday}/{sunday}/{codeCountry}/{idLocation}")
+    public ResponseEntity<List<Holiday>> generateHolidays(@PathVariable(name="year") Integer year,
+                                                          @PathVariable(name="month") Integer month,
+                                                          @PathVariable(name="saturday") Boolean saturday,
+                                                          @PathVariable(name="sunday") Boolean sunday,
+                                                          @PathVariable(name="codeCountry") String codeCountry,
+                                                          @PathVariable(name="idLocation") String idLocation){
 
+        try {
+            return ResponseEntity.ok(holidayService.generateHolidayeekends(year,
+                    month, saturday, sunday, codeCountry, idLocation));
+        }catch (RuntimeException ex){
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PutMapping("/holiday-update")
+    public ResponseEntity<Holiday> updateHoliday(@RequestBody Holiday holiday){
+        try{
+            return ResponseEntity.ok(holidayService.updateHoliday(holiday));
+        }catch (RuntimeException rte){
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @DeleteMapping("/holiday-delete/{id}")
+    public ResponseEntity<Holiday> deleteHoliday(@PathVariable String id){
+        try{
+            return ResponseEntity.ok(holidayService.logicDeleteHoliday((id)));
+        }catch (RuntimeException rte){
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
