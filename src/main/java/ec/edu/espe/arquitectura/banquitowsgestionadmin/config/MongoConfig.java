@@ -1,8 +1,6 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.config;
 
 import org.bson.types.Decimal128;
-import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,8 +12,6 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.converter.ObjectIdToGeoLocationConverter;
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.GeoLocation;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.GeoLocationRepository;
 
 import java.math.BigDecimal;
@@ -25,8 +21,6 @@ import java.util.Arrays;
 public class MongoConfig extends AbstractMongoClientConfiguration {
     @Value("${spring.data.mongodb.database}")
     private String databaseName;
-
-    private GeoLocationRepository geoLocationRepository;
 
     @Override
     protected String getDatabaseName() {
@@ -74,9 +68,5 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         return new MongoCustomConversions(Arrays.asList(decimal128ToBigDecimal, bigDecimalToDecimal128));
     }
 
-    @Bean
-    public ObjectIdToGeoLocationConverter objectIdToGeoLocationConverter(GeoLocationRepository geoLocationRepository) {
-        return new ObjectIdToGeoLocationConverter(geoLocationRepository);
-    }
 
 }
