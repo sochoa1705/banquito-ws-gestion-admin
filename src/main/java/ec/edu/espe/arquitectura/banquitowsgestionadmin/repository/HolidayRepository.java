@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface HolidayRepository extends MongoRepository<Holiday, String> {
     List<Holiday> findByNameLike(String name);
+    List<Holiday> findByType(String type);
 }

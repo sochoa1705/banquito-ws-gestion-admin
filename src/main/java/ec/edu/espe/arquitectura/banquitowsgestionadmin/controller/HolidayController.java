@@ -2,6 +2,8 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller;
 
 import java.util.List;
 
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.HolidayRQ;
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.HolidayRS;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,23 +22,25 @@ public class HolidayController {
         this.holidayService = holidayService;
     }
 
-    @GetMapping("/holiday-list")
-    public ResponseEntity<List<Holiday>> getAllHolidays() {
-        return ResponseEntity.ok(holidayService.getAllHolidays());
+    @GetMapping("/holiday-list/{type}")
+    public ResponseEntity<List<HolidayRS>> getHolidaysByType(@PathVariable(name = "type") String type) {
+        List<HolidayRS> holidays = this.holidayService.getAllHolidays(type);
+        return ResponseEntity.ok(holidays);
     }
 
     @GetMapping("/holiday-get/{holidayId}")
-    public ResponseEntity<Holiday> obtainHoliday(@PathVariable(name = "holidayId") String holidayId) {
-        return ResponseEntity.ok(holidayService.obtainHoliday(holidayId));
+    public ResponseEntity<HolidayRS> obtainHoliday(@PathVariable(name = "holidayId") String holidayId) {
+        HolidayRS holidays = this.holidayService.obtainHoliday(holidayId);
+        return ResponseEntity.ok(holidays);
     }
 
     @PostMapping("/holiday-create")
-    public ResponseEntity<Holiday> createHoliday(@RequestBody Holiday holiday){
-        return ResponseEntity.ok(holidayService.createHoliday(holiday));
+    public ResponseEntity<?> createHoliday(@RequestBody HolidayRQ holidayRQ){
+        return ResponseEntity.ok(holidayService.createHoliday(holidayRQ));
     }
 
     @PostMapping("/holiday-generate/{year}/{month}/{saturday}/{sunday}/{codeCountry}/{idLocation}")
-    public ResponseEntity<List<Holiday>> generateHolidays(@PathVariable(name="year") Integer year,
+    public ResponseEntity<List<HolidayRS>> generateHolidays(@PathVariable(name="year") Integer year,
                                                           @PathVariable(name="month") Integer month,
                                                           @PathVariable(name="saturday") Boolean saturday,
                                                           @PathVariable(name="sunday") Boolean sunday,
@@ -44,26 +48,29 @@ public class HolidayController {
                                                           @PathVariable(name="idLocation") String idLocation){
 
         try {
-            return ResponseEntity.ok(holidayService.generateHolidayeekends(year,
-                    month, saturday, sunday, codeCountry, idLocation));
+            List<HolidayRS> holidayRSList = holidayService.generateHolidayWeekends(year,
+                    month, saturday, sunday, codeCountry, idLocation);
+            return ResponseEntity.ok(holidayRSList);
         }catch (RuntimeException ex){
             return ResponseEntity.badRequest().build();
         }
     }
 
     @PutMapping("/holiday-update")
-    public ResponseEntity<Holiday> updateHoliday(@RequestBody Holiday holiday){
+    public ResponseEntity<HolidayRS> updateHoliday(@RequestBody HolidayRQ holidayRQ){
         try{
-            return ResponseEntity.ok(holidayService.updateHoliday(holiday));
+            HolidayRS rs = this.holidayService.updateHoliday(holidayRQ);
+            return ResponseEntity.ok(rs);
         }catch (RuntimeException rte){
             return ResponseEntity.badRequest().build();
         }
     }
 
     @DeleteMapping("/holiday-delete/{id}")
-    public ResponseEntity<Holiday> deleteHoliday(@PathVariable String id){
+    public ResponseEntity<HolidayRS> deleteHoliday(@PathVariable String id){
         try{
-            return ResponseEntity.ok(holidayService.logicDeleteHoliday((id)));
+            HolidayRS rs = this.holidayService.logicDeleteHoliday(id);
+            return ResponseEntity.ok().body(rs);
         }catch (RuntimeException rte){
             return ResponseEntity.badRequest().build();
         }
