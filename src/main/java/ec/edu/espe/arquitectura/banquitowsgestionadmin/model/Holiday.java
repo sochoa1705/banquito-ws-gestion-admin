@@ -1,21 +1,24 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.model;
 
-import lombok.Builder;
-import lombok.Data;
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import lombok.Builder;
+import lombok.Data;
+
 @Data
 @Builder
-@Document(collection = "geoStructure")
-public class GeoStructure {
+@Document(collection = "holidays")
+public class Holiday {
     @Id
     private String id;
-    private Integer levelCode;
-    private String name;
-    private String state;
+    private Date holidayDate;
+    private GeoLocation location;
     private Country country;
-    private List<GeoLocation> locations;
-
+    private String name;
+    private String type;
+    private String state;
+    private Integer version;
 }

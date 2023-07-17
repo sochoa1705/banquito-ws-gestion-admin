@@ -22,5 +22,8 @@ public class Branch {
     private Float latitude;
     private Float longitude;
 
+    private String status;
+
+
 
 }

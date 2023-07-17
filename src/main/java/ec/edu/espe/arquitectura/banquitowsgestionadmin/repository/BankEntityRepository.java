@@ -16,4 +16,5 @@ public interface BankEntityRepository extends MongoRepository<BankEntity, String
     //List<BankEntity> findByBranches(String code);
 
     //List<Branch> findB(String code);
+
 }
