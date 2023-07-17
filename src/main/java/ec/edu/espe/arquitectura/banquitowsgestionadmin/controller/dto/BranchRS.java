@@ -19,6 +19,4 @@ public class BranchRS {
     private String line2;
     private Float latitude;
     private Float longitude;
-    private String status;
-    private Integer version;
 }
