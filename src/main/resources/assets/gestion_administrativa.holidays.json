@@ -1,0 +1,229 @@
+[{
+  "_id": {
+    "$oid": "64b193ffc9b3e5f950657cda"
+  },
+  "holidayDate": {
+    "$date": "2022-04-15T00:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "Viernes Santo",
+  "type": "NAT",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ecd"
+  },
+  "holidayDate": {
+    "$date": "2023-04-01T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ece"
+  },
+  "holidayDate": {
+    "$date": "2023-04-02T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ecf"
+  },
+  "holidayDate": {
+    "$date": "2023-04-08T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ed0"
+  },
+  "holidayDate": {
+    "$date": "2023-04-09T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ed1"
+  },
+  "holidayDate": {
+    "$date": "2023-04-15T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ed2"
+  },
+  "holidayDate": {
+    "$date": "2023-04-16T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ed3"
+  },
+  "holidayDate": {
+    "$date": "2023-04-22T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ed4"
+  },
+  "holidayDate": {
+    "$date": "2023-04-23T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ed5"
+  },
+  "holidayDate": {
+    "$date": "2023-04-29T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT",
+  "version": 0
+},
+{
+  "_id": {
+    "$oid": "64b39f4d45ab124994e79ed6"
+  },
+  "holidayDate": {
+    "$date": "2023-04-30T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY VACATION",
+  "type": "REG",
+  "state": "INA",
+  "version": 0
+}]

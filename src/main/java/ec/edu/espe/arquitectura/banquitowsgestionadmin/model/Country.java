@@ -13,7 +13,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Country {
     @Id
     private String id;
-    @Indexed(unique = true)
     private String code;
     private String name;
     private String phoneCode;
