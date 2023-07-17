@@ -2,17 +2,17 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.model;
 
 import java.util.Date;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
+
 
 @Data
-@NoArgsConstructor
-
+@Builder
 public class Branch {
 
     private String locationId;
     private String code;
     private String name;
-    private String unique_key;
+    private String uniqueKey;
     private String state;
     private Date creationDate;
     private String emailAddress;
@@ -21,7 +21,6 @@ public class Branch {
     private String line2;
     private Float latitude;
     private Float longitude;
-    private String status;
-    private Integer version;
+
 
 }
