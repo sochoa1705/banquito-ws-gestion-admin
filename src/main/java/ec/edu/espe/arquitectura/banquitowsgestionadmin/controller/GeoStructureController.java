@@ -5,10 +5,7 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructu
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructureRS;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.service.GeoStructureService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/geo-structure")
@@ -20,8 +17,8 @@ public class GeoStructureController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createGeoStructure(@RequestBody GeoStructureRQ geoStructure){
-        this.geoStructureService.createGeoStructure(geoStructure);
+    public ResponseEntity<?> createGeoStructure(@RequestBody GeoStructureRQ geoStructure, @RequestParam String countryCode){
+        this.geoStructureService.createGeoStructure(geoStructure, countryCode);
         return ResponseEntity.ok().body("GeoStructure created");
     }
 

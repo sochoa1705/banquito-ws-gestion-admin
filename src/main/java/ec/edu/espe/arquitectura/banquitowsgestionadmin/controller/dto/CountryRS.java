@@ -9,6 +9,4 @@ public class CountryRS {
     private String code;
     private String name;
     private String phoneCode;
-    private String status;
-    private Integer version;
 }

@@ -6,32 +6,47 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Country;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.CountryRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CountryService {
+public class    CountryService {
     private final CountryRepository countryRepository;
 
     public CountryService(CountryRepository countryRepository) {
         this.countryRepository = countryRepository;
     }
 
-    public CountryRS obtain(String phoneCode) {
-        Country country = this.countryRepository.findByPhoneCode(phoneCode);
+    public CountryRS obtain(String countryCode) {
+        Country country = this.countryRepository.findByCode(countryCode);
         return this.transformCountry(country);
     }
 
+    public List<CountryRS> getAllCountries(){
+        List<Country> countries = this.countryRepository.findAll();
+        List<CountryRS> countriesList = new ArrayList<>();
+        for(Country country : countries){
+            countriesList.add(this.transformCountry(country));
+        }
+        return countriesList;
+    }
+
     public void createCountry(CountryRQ countryRQ) {
-        Country country = this.transformCountryRQ(countryRQ);
-        country.setStatus("ACT");
-        this.countryRepository.save(country);
+       try{
+           Country country = this.transformCountryRQ(countryRQ);
+           this.countryRepository.save(country);
+       }catch (RuntimeException rte) {
+           throw new RuntimeException(rte);
+       }
+
     }
 
     public CountryRS updateCountry(CountryRQ countryRQ) {
 
         Country country = this.transformCountryRQ(countryRQ);
         try{
-            Country countryUpdate = this.countryRepository.findFirstByName(country.getName());
+            Country countryUpdate = this.countryRepository.findByCode(country.getCode());
             if(countryUpdate == null) {
                 throw new RuntimeException("Country "+country.getName()+" not found");
             }else {
@@ -79,7 +94,6 @@ public class CountryService {
                 .code(country.getCode())
                 .name(country.getName())
                 .phoneCode(country.getPhoneCode())
-                .status(country.getStatus())
                 .build();
         return countryRS;
     }

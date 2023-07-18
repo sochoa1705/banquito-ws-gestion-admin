@@ -12,6 +12,8 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.GeoLocationRepository;
+
 import java.math.BigDecimal;
 import java.util.Arrays;
 
@@ -32,14 +34,17 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Bean
     @Override
-    public MappingMongoConverter mappingMongoConverter(MongoDatabaseFactory databaseFactory, MongoCustomConversions customConversions, MongoMappingContext mappingContext) {
-        MappingMongoConverter converter = super.mappingMongoConverter(databaseFactory, customConversions, mappingContext);
+    public MappingMongoConverter mappingMongoConverter(MongoDatabaseFactory databaseFactory,
+            MongoCustomConversions customConversions, MongoMappingContext mappingContext) {
+        MappingMongoConverter converter = super.mappingMongoConverter(databaseFactory, customConversions,
+                mappingContext);
         converter.setTypeMapper(new DefaultMongoTypeMapper(null));
         return converter;
     }
 
     /**
-     * Inject a CustomConversions bean to overwrite the default mapping of BigDecimal.
+     * Inject a CustomConversions bean to overwrite the default mapping of
+     * BigDecimal.
      *
      * @return a new instance of CustomConversons
      */
@@ -62,5 +67,6 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
         return new MongoCustomConversions(Arrays.asList(decimal128ToBigDecimal, bigDecimalToDecimal128));
     }
+
 
 }

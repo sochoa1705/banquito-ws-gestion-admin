@@ -6,6 +6,8 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.service.CountryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/country")
 public class CountryController {
@@ -21,11 +23,17 @@ public class CountryController {
         return ResponseEntity.ok().body("Country created");
     }
 
-    @GetMapping("/{phoneCode}")
-    public ResponseEntity<CountryRS> obtain(@PathVariable String phoneCode) {
-        CountryRS rs = this.countryService.obtain(phoneCode);
+    @GetMapping
+    public ResponseEntity<List<CountryRS>> getAll(){
+        List<CountryRS> countries = this.countryService.getAllCountries();
+        return ResponseEntity.ok(countries);
+    }
+    @GetMapping("/{countryCode}")
+    public ResponseEntity<CountryRS> obtain(@PathVariable String countryCode) {
+        CountryRS rs = this.countryService.obtain(countryCode);
         return ResponseEntity.ok(rs);
     }
+
 
     @PutMapping
     public ResponseEntity<CountryRS> updateCountry(@RequestBody CountryRQ country) {
