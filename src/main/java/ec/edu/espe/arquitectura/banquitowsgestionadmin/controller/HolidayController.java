@@ -24,7 +24,7 @@ public class HolidayController {
 
     @GetMapping("/holiday-list/{type}")
     public ResponseEntity<List<HolidayRS>> getHolidaysByType(@PathVariable(name = "type") String type) {
-        List<HolidayRS> holidays = this.holidayService.getAllHolidays(type);
+        List<HolidayRS> holidays = this.holidayService.getHolidaysByType(type);
         return ResponseEntity.ok(holidays);
     }
 
@@ -36,19 +36,24 @@ public class HolidayController {
 
     @PostMapping("/holiday-create")
     public ResponseEntity<?> createHoliday(@RequestBody HolidayRQ holidayRQ){
-        return ResponseEntity.ok(holidayService.createHoliday(holidayRQ));
+        try{
+            this.holidayService.createHoliday(holidayRQ);
+            return ResponseEntity.ok().build();
+        }catch (RuntimeException rte){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
-    @PostMapping("/holiday-generate/{year}/{month}/{saturday}/{sunday}/{codeCountry}/{idLocation}")
-    public ResponseEntity<List<HolidayRS>> generateHolidays(@PathVariable(name="year") Integer year,
-                                                          @PathVariable(name="month") Integer month,
-                                                          @PathVariable(name="saturday") Boolean saturday,
-                                                          @PathVariable(name="sunday") Boolean sunday,
-                                                          @PathVariable(name="codeCountry") String codeCountry,
-                                                          @PathVariable(name="idLocation") String idLocation){
+    @PostMapping("/holiday-generate")
+    public ResponseEntity<List<HolidayRS>> generateHolidays(@RequestParam Integer year,
+                                                          @RequestParam Integer month,
+                                                          @RequestParam(defaultValue = "false") Boolean saturday,
+                                                          @RequestParam(defaultValue = "false") Boolean sunday,
+                                                          @RequestParam String codeCountry,
+                                                          @RequestParam(required=false) String idLocation){
 
         try {
-            List<HolidayRS> holidayRSList = holidayService.generateHolidayWeekends(year,
+            List<HolidayRS> holidayRSList = this.holidayService.generateHolidayWeekends(year,
                     month, saturday, sunday, codeCountry, idLocation);
             return ResponseEntity.ok(holidayRSList);
         }catch (RuntimeException ex){
