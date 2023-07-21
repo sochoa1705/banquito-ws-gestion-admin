@@ -101,11 +101,10 @@ public class BankEntityService {
     //NO FUNCIONA DELETE
     public BranchRS deleteBranch(String bankEntityId, String branchUniqueKey){
         Optional<BankEntity> optionalBankEntity = bankEntityRepository.findById(bankEntityId);
-
+        BranchRS rs = null;
         if (optionalBankEntity.isPresent()) {
             BankEntity bankEntity = optionalBankEntity.get();
             List<Branch> branchList = bankEntity.getBranches();
-            BranchRS rs = null;
             for (Branch branch : branchList) {
                 if (branch.getUniqueKey().equals(branchUniqueKey)) {
                     branch.setState("INA");

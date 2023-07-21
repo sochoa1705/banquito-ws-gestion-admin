@@ -65,7 +65,7 @@ public class BankEntityController {
         }
     }
 
-    @PutMapping("/branch-delete/{bankEntityId}/{branchId}")
+    @DeleteMapping("/branch-delete/{bankEntityId}/{branchId}")
     public ResponseEntity<BranchRS> deleteBranch(@PathVariable String bankEntityId,
                                                    @PathVariable String branchId
                                                    ){
