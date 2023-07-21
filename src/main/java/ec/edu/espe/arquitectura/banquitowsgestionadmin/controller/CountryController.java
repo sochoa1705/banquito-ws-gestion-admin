@@ -20,7 +20,7 @@ public class CountryController {
     @PostMapping
     public ResponseEntity<?> createCountry(@RequestBody CountryRQ countryRQ) {
         this.countryService.createCountry(countryRQ);
-        return ResponseEntity.ok().body("Country created");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping
