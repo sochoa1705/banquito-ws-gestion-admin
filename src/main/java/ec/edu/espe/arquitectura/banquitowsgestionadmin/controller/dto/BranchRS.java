@@ -10,7 +10,7 @@ public class BranchRS {
     private String locationId;
     private String code;
     private String name;
-    private String unique_key;
+    private String uniqueKey;
     private String state;
     private Date creationDate;
     private String emailAddress;
