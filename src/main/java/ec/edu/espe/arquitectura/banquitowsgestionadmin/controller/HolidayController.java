@@ -1,16 +1,15 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.HolidayRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.HolidayRS;
-import org.springframework.http.HttpStatus;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.GeoLocation;
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Holiday;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.service.HolidayService;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/holiday")
@@ -22,10 +21,23 @@ public class HolidayController {
         this.holidayService = holidayService;
     }
 
-    @GetMapping("/holiday-list/{type}")
+    @GetMapping("/holiday-list-type/{type}")
     public ResponseEntity<List<HolidayRS>> getHolidaysByType(@PathVariable(name = "type") String type) {
-        List<HolidayRS> holidays = this.holidayService.getAllHolidays(type);
+        List<HolidayRS> holidays = this.holidayService.getHolidaysByType(type);
         return ResponseEntity.ok(holidays);
+    }
+
+    @GetMapping("/holiday-list-name/{name}")
+    public ResponseEntity<List<HolidayRS>> getHolidaysByName(@PathVariable(name = "name") String name) {
+        List<HolidayRS> holidays = this.holidayService.getHolidaysByName(name);
+        return ResponseEntity.ok(holidays);
+    }
+
+    @GetMapping("/holiday-list-between-dates")
+    public ResponseEntity<List<HolidayRS>> getHolidaysBetweenDates(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX") Date start,
+                                                                   @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX") Date end) {
+        List<HolidayRS> holidayList = this.holidayService.getHolidaysBetweenDates(start, end);
+        return ResponseEntity.ok(holidayList);
     }
 
     @GetMapping("/holiday-get/{holidayId}")
@@ -36,19 +48,24 @@ public class HolidayController {
 
     @PostMapping("/holiday-create")
     public ResponseEntity<?> createHoliday(@RequestBody HolidayRQ holidayRQ){
-        return ResponseEntity.ok(holidayService.createHoliday(holidayRQ));
+        try{
+            this.holidayService.createHoliday(holidayRQ);
+            return ResponseEntity.ok().build();
+        }catch (RuntimeException rte){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
-    @PostMapping("/holiday-generate/{year}/{month}/{saturday}/{sunday}/{codeCountry}/{idLocation}")
-    public ResponseEntity<List<HolidayRS>> generateHolidays(@PathVariable(name="year") Integer year,
-                                                          @PathVariable(name="month") Integer month,
-                                                          @PathVariable(name="saturday") Boolean saturday,
-                                                          @PathVariable(name="sunday") Boolean sunday,
-                                                          @PathVariable(name="codeCountry") String codeCountry,
-                                                          @PathVariable(name="idLocation") String idLocation){
+    @PostMapping("/holiday-generate")
+    public ResponseEntity<List<HolidayRS>> generateHolidays(@RequestParam Integer year,
+                                                          @RequestParam Integer month,
+                                                          @RequestParam(defaultValue = "false") Boolean saturday,
+                                                          @RequestParam(defaultValue = "false") Boolean sunday,
+                                                          @RequestParam String codeCountry,
+                                                          @RequestParam(required=false) String idLocation){
 
         try {
-            List<HolidayRS> holidayRSList = holidayService.generateHolidayWeekends(year,
+            List<HolidayRS> holidayRSList = this.holidayService.generateHolidayWeekends(year,
                     month, saturday, sunday, codeCountry, idLocation);
             return ResponseEntity.ok(holidayRSList);
         }catch (RuntimeException ex){

@@ -3,10 +3,7 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.service;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.HolidayRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.HolidayRS;
@@ -39,21 +36,25 @@ public class HolidayService {
         this.geoStructureRepository = geoStructureRepository;
     }
 
-    public List<HolidayRS> getAllHolidays(String type) {
+    public List<HolidayRS> getHolidaysByName(String name){
+        List <Holiday> holidayList = this.holidayRepository.findByNameLike(name);
+        return this.transformToHolidaysRS(holidayList);
+    }
+    public List<HolidayRS> getHolidaysByType(String type) {
         List <Holiday> holidayList = this.holidayRepository.findByType(type);
-        List <HolidayRS> holidayRSList = new ArrayList<>();
-        for(Holiday holiday : holidayList){
-            holidayRSList.add(this.responseHoliday(holiday));
-        }
-        return holidayRSList;
+        return this.transformToHolidaysRS(holidayList);
     }
 
-    public HolidayRS obtainHoliday(String holidayId){
+    public List<HolidayRS> getHolidaysBetweenDates(Date start, Date end){
+        List<Holiday> holidayList = this.holidayRepository.findByHolidayDateBetween(start, end);
+        return this.transformToHolidaysRS(holidayList);
+    }
+
+    public HolidayRS obtainHoliday(String holidayUuid){
         try{
-            Optional<Holiday> optionalHoliday = this.holidayRepository.findById(holidayId);
-            if(optionalHoliday.isPresent()){
-                Holiday holiday = optionalHoliday.get();
-                return this.responseHoliday(holiday);
+            Holiday holiday = this.holidayRepository.findByUniqueId(holidayUuid);
+            if(holiday != null){
+                return this.transformHolidayRS(holiday);
             }else {
                 throw new RuntimeException("Holiday don't exists!");
             }
@@ -62,13 +63,14 @@ public class HolidayService {
         }
     }
 
-    public Holiday createHoliday(HolidayRQ holidayRQ){
+    public void createHoliday(HolidayRQ holidayRQ){
         try{
             Holiday holidayRequest = this.transformHolidayRQ(holidayRQ);
-            Optional<Holiday> optionalHoliday = this.holidayRepository.findById(holidayRequest.getId());
-            if(!optionalHoliday.isPresent()){
+            Holiday optionalHoliday = this.holidayRepository.findByUniqueId(holidayRequest.getUniqueId());
+            if(optionalHoliday == null){
+                holidayRequest.setUniqueId(UUID.randomUUID().toString());
                 holidayRequest.setState("ACT");
-                return this.holidayRepository.save(holidayRequest);
+                this.holidayRepository.save(holidayRequest);
             }else{
                 throw new RuntimeException("Holiday already exists!");
             }
@@ -78,14 +80,14 @@ public class HolidayService {
     }
 
     public HolidayRS updateHoliday(HolidayRQ holidayRQ){
-        Holiday holiday = this.transformHolidayRQ(holidayRQ);
         try{
-            Holiday updatelHoliday = this.holidayRepository.findById(holiday.getId()).orElse(null);
-            if(updatelHoliday != null){
-                updatelHoliday.setHolidayDate(holiday.getHolidayDate());
-                updatelHoliday.setName(holiday.getName());
-                updatelHoliday.setType(holiday.getType());
-                return this.responseHoliday(this.holidayRepository.save(updatelHoliday));
+            Holiday holiday = this.transformHolidayRQ(holidayRQ);
+            Holiday updateHoliday = this.holidayRepository.findByUniqueId(holiday.getUniqueId());
+            if(updateHoliday != null){
+                updateHoliday.setHolidayDate(holiday.getHolidayDate());
+                updateHoliday.setName(holiday.getName());
+                updateHoliday.setType(holiday.getType());
+                return this.transformHolidayRS(this.holidayRepository.save(updateHoliday));
             }else{
                 throw new RuntimeException("Holiday aren't exists!");
             }
@@ -94,13 +96,12 @@ public class HolidayService {
         }
     }
 
-    public HolidayRS logicDeleteHoliday(String id){
+    public HolidayRS logicDeleteHoliday(String uuid){
         try{
-            Optional<Holiday> holidayOptional = this.holidayRepository.findById(id);
-            if(holidayOptional.isPresent()){
-                Holiday holidayLogicDelete = holidayOptional.get();
-                holidayLogicDelete.setState("INA");
-                return this.responseHoliday(this.holidayRepository.save(holidayLogicDelete));
+            Holiday holiday = this.holidayRepository.findByUniqueIdAndState(uuid,"ACT");
+            if(holiday != null){
+                holiday.setState("INA");
+                return this.transformHolidayRS(this.holidayRepository.save(holiday));
             }else{
                 throw new RuntimeException("Holiday don't found!");
             }
@@ -116,7 +117,7 @@ public class HolidayService {
                                                 String codeCountry,
                                                 String idLocation){
 
-        if (codeCountry == null) {
+        if (codeCountry == null || codeCountry.isEmpty()) {
             throw new RuntimeException();
         }
 
@@ -148,7 +149,7 @@ public class HolidayService {
         }
         List<HolidayRS> HolidaysList = new ArrayList<>();
         for(Holiday holiday : this.holidayRepository.saveAll(holidayWeekend)) {
-            HolidaysList.add(this.responseHoliday(holiday));
+            HolidaysList.add(this.transformHolidayRS(holiday));
         }
         return HolidaysList;
     }
@@ -156,24 +157,24 @@ public class HolidayService {
     private Holiday createWeekendHolidaywithLocation(LocalDate date, Country country, GeoLocation location){
 
         return Holiday.builder()
+                .uniqueId(UUID.randomUUID().toString())
                 .holidayDate(Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .location(location)
                 .country(country)
                 .name(date.getDayOfWeek() == DayOfWeek.SATURDAY ? "SATURDAY WEEKEND" : "SUNDAY WEEKEND")
                 .type(getType(country, location))
-                .state("ACT")
-                .version(0).build();
+                .state("ACT").build();
     }
 
     private Holiday createWeekendHolidaywithoutLocation(LocalDate date, Country country){
         return Holiday.builder()
+                .uniqueId(UUID.randomUUID().toString())
                 .holidayDate(Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .location(null)
                 .country(country)
                 .name(date.getDayOfWeek() == DayOfWeek.SATURDAY ? "SATURDAY WEEKEND" : "SUNDAY WEEKEND")
                 .type("REG")
-                .state("ACT")
-                .version(0).build();
+                .state("ACT").build();
     }
 
     private String getType(Country country, GeoLocation location){
@@ -191,27 +192,32 @@ public class HolidayService {
 
     public Holiday transformHolidayRQ(HolidayRQ rq){
         return Holiday.builder()
-                .id(rq.getId())
+                .uniqueId(rq.getUniqueId())
                 .holidayDate(rq.getHolidayDate())
                 .name(rq.getName())
                 .type(rq.getType())
-                .state(rq.getState())
-                .version(rq.getVersion())
                 .location(rq.getLocation())
                 .country(rq.getCountry())
                 .build();
     }
 
-    public HolidayRS responseHoliday(Holiday holiday){
+    public HolidayRS transformHolidayRS(Holiday holiday){
         return HolidayRS.builder()
-                .id(holiday.getId())
+                .uniqueId(holiday.getId())
                 .holidayDate(holiday.getHolidayDate())
                 .name(holiday.getName())
                 .type(holiday.getType())
                 .state(holiday.getState())
-                .version(holiday.getVersion())
                 .location(holiday.getLocation())
                 .country(holiday.getCountry())
                 .build();
+    }
+
+    private List<HolidayRS> transformToHolidaysRS(List<Holiday> listHoliday){
+        List <HolidayRS> holidayRSList = new ArrayList<>();
+        for(Holiday holiday : listHoliday){
+            holidayRSList.add(this.transformHolidayRS(holiday));
+        }
+        return holidayRSList;
     }
 }
