@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/country")
 public class CountryController {
     private final CountryService countryService;
@@ -34,7 +35,7 @@ public class CountryController {
         return ResponseEntity.ok(rs);
     }
 
-    @GetMapping("/country/{countryName}")
+    @GetMapping("/countries/{countryName}")
     public ResponseEntity<CountryRS> obtainByName(@PathVariable String countryName) {
         CountryRS rs = this.countryService.obtainByName(countryName);
         return ResponseEntity.ok(rs);
