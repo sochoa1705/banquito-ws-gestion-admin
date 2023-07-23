@@ -23,6 +23,11 @@ public class    CountryService {
         return this.transformCountry(country);
     }
 
+    public CountryRS obtainByName(String countryName) {
+        Country country = this.countryRepository.findByName(countryName);
+        return this.transformCountry(country);
+    }
+
     public List<CountryRS> getAllCountries(){
         List<Country> countries = this.countryRepository.findAll();
         List<CountryRS> countriesList = new ArrayList<>();
