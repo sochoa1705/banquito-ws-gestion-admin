@@ -203,7 +203,7 @@ public class HolidayService {
 
     public HolidayRS transformHolidayRS(Holiday holiday){
         return HolidayRS.builder()
-                .uniqueId(holiday.getId())
+                .uniqueId(holiday.getUniqueId())
                 .holidayDate(holiday.getHolidayDate())
                 .name(holiday.getName())
                 .type(holiday.getType())

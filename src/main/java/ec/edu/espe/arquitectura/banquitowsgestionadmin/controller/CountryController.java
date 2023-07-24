@@ -35,6 +35,7 @@ public class CountryController {
         return ResponseEntity.ok(rs);
     }
 
+
     @GetMapping("/countries/{countryName}")
     public ResponseEntity<CountryRS> obtainByName(@PathVariable String countryName) {
         CountryRS rs = this.countryService.obtainByName(countryName);
