@@ -12,6 +12,7 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.service.HolidayService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/holiday")
 public class HolidayController {
     
