@@ -98,7 +98,7 @@ public class BankEntityService {
             throw new RuntimeException("Branch can't be created: ", rte);
         }
     }
-    //NO FUNCIONA DELETE
+
     public BranchRS deleteBranch(String bankEntityId, String branchUniqueKey){
         Optional<BankEntity> optionalBankEntity = bankEntityRepository.findById(bankEntityId);
         BranchRS rs = null;
