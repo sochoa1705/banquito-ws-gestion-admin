@@ -70,9 +70,8 @@ public class    CountryService {
 
     public CountryRS logicDelete(String id){
         try {
-            Optional<Country> countryOptional = this.countryRepository.findById(id);
-            if(countryOptional.isPresent()) {
-                Country countryLogicDelete = countryOptional.get();
+            Country countryLogicDelete = this.countryRepository.findByCode(id);
+            if(countryLogicDelete != null) {
                 countryLogicDelete.setStatus("INA");
                 this.countryRepository.save(countryLogicDelete);
                 return this.transformCountry(countryLogicDelete);

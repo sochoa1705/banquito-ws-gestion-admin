@@ -22,7 +22,7 @@ public class GeoStructureController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/provinces/{countryCode}")
+    @GetMapping("/locations/{countryCode}")
     public ResponseEntity<GeoStructureRS> obtainProvincesFromCountry(@RequestParam Integer levelCode, @PathVariable String countryCode) {
         GeoStructureRS geoStructureRS = this.geoStructureService.obtainStructureFromCountry(levelCode, countryCode);
         return ResponseEntity.ok().body(geoStructureRS);
