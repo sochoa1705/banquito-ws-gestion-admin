@@ -1,0 +1,387 @@
+[{
+  "_id": {
+    "$oid": "64b2f6f0cc561e6d3b7ff1f7"
+  },
+  "levelCode": 1,
+  "name": "Provincia",
+  "state": "ACT",
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "locations": [
+    {
+      "_id": {
+        "$oid": "64b0a7be466dc541f29fdb8e"
+      },
+      "name": "AZUAY",
+      "areaPhoneCode": "07",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a7d4466dc541f29fdb8f"
+      },
+      "name": "BOLIVAR",
+      "areaPhoneCode": "03",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a7ea466dc541f29fdb90"
+      },
+      "name": "CAÑAR",
+      "areaPhoneCode": "07",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a830466dc541f29fdb91"
+      },
+      "name": "CARCHI",
+      "areaPhoneCode": "06",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a83b466dc541f29fdb92"
+      },
+      "name": "COTOPAXI",
+      "areaPhoneCode": "03",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a849466dc541f29fdb93"
+      },
+      "name": "CHIMBORAZO",
+      "areaPhoneCode": "03",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a889466dc541f29fdb94"
+      },
+      "name": "EL ORO",
+      "areaPhoneCode": "07",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a896466dc541f29fdb95"
+      },
+      "name": "ESMERALDAS",
+      "areaPhoneCode": "06",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a8a2466dc541f29fdb96"
+      },
+      "name": "GUAYAS",
+      "areaPhoneCode": "04",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a8ba466dc541f29fdb97"
+      },
+      "name": "IMBABURA",
+      "areaPhoneCode": "06",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a8cb466dc541f29fdb98"
+      },
+      "name": "LOJA",
+      "areaPhoneCode": "07",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a8d7466dc541f29fdb99"
+      },
+      "name": "LOS RIOS",
+      "areaPhoneCode": "05",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a8f4466dc541f29fdb9a"
+      },
+      "name": "MANABI",
+      "areaPhoneCode": "05",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a90c466dc541f29fdb9b"
+      },
+      "name": "MORONA SANTIAGO",
+      "areaPhoneCode": "07",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a923466dc541f29fdb9c"
+      },
+      "name": "NAPO",
+      "areaPhoneCode": "06",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a95e466dc541f29fdb9d"
+      },
+      "name": "PASTAZA",
+      "areaPhoneCode": "03",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a968466dc541f29fdb9e"
+      },
+      "name": "PICHINCHA",
+      "areaPhoneCode": "02",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a973466dc541f29fdb9f"
+      },
+      "name": "TUNGURAHUA",
+      "areaPhoneCode": "03",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a98c466dc541f29fdba0"
+      },
+      "name": "ZAMORA CHINCHIPE",
+      "areaPhoneCode": "07",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a998466dc541f29fdba1"
+      },
+      "name": "GALAPAGOS",
+      "areaPhoneCode": "05",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a9aa466dc541f29fdba2"
+      },
+      "name": "SUCUMBIOS",
+      "areaPhoneCode": "06",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a9c7466dc541f29fdba3"
+      },
+      "name": "ORELLANA",
+      "areaPhoneCode": "06",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0a9f8466dc541f29fdba4"
+      },
+      "name": "SANTO DOMINGO DE LOS TSACHILAS",
+      "areaPhoneCode": "02",
+      "zipCode": "170101",
+      "locationParent": ""
+    },
+    {
+      "_id": {
+        "$oid": "64b0aa29466dc541f29fdba5"
+      },
+      "name": "SANTA ELENA",
+      "areaPhoneCode": "02",
+      "zipCode": "170101",
+      "locationParent": ""
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64b5a086ec3deb59605db83d"
+  },
+  "levelCode": 2,
+  "name": "Cantón",
+  "state": "ACT",
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "locations": [
+    {
+      "_id": {
+        "$oid": "64b0aa80466dc541f29fdba6"
+      },
+      "name": "CUENCA",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aa93466dc541f29fdba7"
+      },
+      "name": "GIRON",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aa99466dc541f29fdba8"
+      },
+      "name": "GUALACEO",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aa9f466dc541f29fdba9"
+      },
+      "name": "NABON",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aaa5466dc541f29fdbaa"
+      },
+      "name": "PAUTE",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aaad466dc541f29fdbab"
+      },
+      "name": "PUCARA",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aae2466dc541f29fdbac"
+      },
+      "name": "SAN FERNANDO",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aae9466dc541f29fdbad"
+      },
+      "name": "SANTA ISABEL",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aaf2466dc541f29fdbae"
+      },
+      "name": "SIGSIG",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0aaf6466dc541f29fdbaf"
+      },
+      "name": "OÑA",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0ab0d466dc541f29fdbb0"
+      },
+      "name": "CHORDELEG",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0ab12466dc541f29fdbb1"
+      },
+      "name": "EL PAN",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0ab1a466dc541f29fdbb2"
+      },
+      "name": "SEVILLA DE ORO",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0ab24466dc541f29fdbb3"
+      },
+      "name": "GUACHAPALA",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    },
+    {
+      "_id": {
+        "$oid": "64b0ab2f466dc541f29fdbb4"
+      },
+      "name": "CAMILO PONCE ENRIQUEZ",
+      "areaPhoneCode": "07",
+      "zipCode": "200202",
+      "locationParent": "64b0a7be466dc541f29fdb8e"
+    }
+  ]
+}]

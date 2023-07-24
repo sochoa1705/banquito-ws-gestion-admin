@@ -1,6 +1,5 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller;
 
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoLocationRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructureRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructureRS;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.service.GeoStructureService;
@@ -17,15 +16,15 @@ public class GeoStructureController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createGeoStructure(@RequestBody GeoStructureRQ geoStructure, @RequestParam String countryCode){
+    public ResponseEntity<?> createGeoStructure(@RequestBody GeoStructureRQ geoStructure, @RequestParam String countryCode) {
         this.geoStructureService.createGeoStructure(geoStructure, countryCode);
-        return ResponseEntity.ok().body("GeoStructure created");
+        return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/locations")
-    public ResponseEntity<GeoStructureRS> getStructureByLocation(@RequestBody GeoLocationRQ geoLocationRQ){
-        GeoStructureRS rs = this.geoStructureService.findLocationParent(geoLocationRQ);
-        return ResponseEntity.ok(rs);
+    @GetMapping("/provinces/{countryCode}")
+    public ResponseEntity<GeoStructureRS> obtainProvincesFromCountry(@RequestParam Integer levelCode, @PathVariable String countryCode) {
+        GeoStructureRS geoStructureRS = this.geoStructureService.obtainStructureFromCountry(levelCode, countryCode);
+        return ResponseEntity.ok().body(geoStructureRS);
     }
 
 }

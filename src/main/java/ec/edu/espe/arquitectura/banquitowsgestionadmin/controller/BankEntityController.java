@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/bankEntity")
 public class BankEntityController {
 
@@ -65,7 +66,7 @@ public class BankEntityController {
         }
     }
 
-    @PutMapping("/branch-delete/{bankEntityId}/{branchId}")
+    @DeleteMapping("/branch-delete/{bankEntityId}/{branchId}")
     public ResponseEntity<BranchRS> deleteBranch(@PathVariable String bankEntityId,
                                                    @PathVariable String branchId
                                                    ){

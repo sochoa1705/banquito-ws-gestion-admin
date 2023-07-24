@@ -5,7 +5,8 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
+
 public interface GeoLocationRepository extends MongoRepository<GeoLocation, String> {
     List<GeoLocation> findGeoLocationByZipCode(String zipCode);
-    GeoLocation findGeoLocationByNameAndZipCode(String name, String zipCode);
+
 }

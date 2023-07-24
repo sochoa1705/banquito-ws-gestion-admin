@@ -20,7 +20,7 @@ public class CountryController {
     @PostMapping
     public ResponseEntity<?> createCountry(@RequestBody CountryRQ countryRQ) {
         this.countryService.createCountry(countryRQ);
-        return ResponseEntity.ok().body("Country created");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping
@@ -31,6 +31,12 @@ public class CountryController {
     @GetMapping("/{countryCode}")
     public ResponseEntity<CountryRS> obtain(@PathVariable String countryCode) {
         CountryRS rs = this.countryService.obtain(countryCode);
+        return ResponseEntity.ok(rs);
+    }
+
+    @GetMapping("/country/{countryName}")
+    public ResponseEntity<CountryRS> obtainByName(@PathVariable String countryName) {
+        CountryRS rs = this.countryService.obtainByName(countryName);
         return ResponseEntity.ok(rs);
     }
 

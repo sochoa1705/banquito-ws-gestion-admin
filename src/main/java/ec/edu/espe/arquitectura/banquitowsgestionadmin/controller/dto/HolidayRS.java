@@ -9,12 +9,11 @@ import java.util.Date;
 @Data
 @Builder
 public class HolidayRS {
-    private String id;
+    private String uniqueId;
     private Date holidayDate;
     private GeoLocation location;
     private Country country;
     private String name;
     private String type;
     private String state;
-    private Integer version;
 }
