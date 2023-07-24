@@ -75,26 +75,35 @@ public class BankEntityService {
     }
 
     public BankEntity updateBranch(String bankEntityId, String branchUniqueKey, BranchRQ branchRQ){
-        try{
+        try {
             Optional<BankEntity> optionalBankEntity = bankEntityRepository.findById(bankEntityId);
             if (optionalBankEntity.isPresent()) {
                 BankEntity bankEntity = optionalBankEntity.get();
                 List<Branch> branchList = bankEntity.getBranches();
-                Branch newBranch = this.transformBranchRQ(branchRQ);
+
+                boolean branchUpdated = false;
 
                 for (Branch branch : branchList) {
                     if (branch.getUniqueKey().equals(branchUniqueKey)) {
                         branch.setName(branchRQ.getName());
                         branch.setEmailAddress(branchRQ.getEmailAddress());
                         branch.setPhoneNumber(branchRQ.getPhoneNumber());
+                        branchUpdated = true;
+                        break; // Salir del bucle una vez que se actualiza la sucursal
                     }
                 }
-                branchList.add(newBranch);
+
+                if (!branchUpdated) {
+                    // Si no se actualizó ninguna sucursal existente, entonces se debe agregar la nueva sucursal
+                    Branch newBranch = this.transformBranchRQ(branchRQ);
+                    branchList.add(newBranch);
+                }
+
                 bankEntity.setBranches(branchList);
                 return bankEntityRepository.save(bankEntity);
             }
             return null;
-        }catch (RuntimeException rte){
+        } catch (RuntimeException rte) {
             throw new RuntimeException("Branch can't be created: ", rte);
         }
     }

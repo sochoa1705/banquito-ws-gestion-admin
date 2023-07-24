@@ -22,7 +22,7 @@ public class GeoLocationController {
     @PostMapping
     public ResponseEntity<?> create(@RequestBody GeoLocationRQ geoLocation){
         this.geoLocationService.createGeoLocation(geoLocation);
-        return ResponseEntity.ok().body("GeoLocation created");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping

@@ -19,7 +19,7 @@ public class GeoStructureController {
     @PostMapping
     public ResponseEntity<?> createGeoStructure(@RequestBody GeoStructureRQ geoStructure, @RequestParam String countryCode) {
         this.geoStructureService.createGeoStructure(geoStructure, countryCode);
-        return ResponseEntity.ok().body("GeoStructure created");
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/provinces/{countryCode}")
