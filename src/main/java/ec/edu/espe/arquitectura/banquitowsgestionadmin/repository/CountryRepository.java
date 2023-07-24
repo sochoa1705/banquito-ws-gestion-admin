@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface CountryRepository extends MongoRepository<Country, String> {
     Country findByCode(String code);
-    Optional<Country> findByPhoneCode(String phoneCode);
     @Override
     List<Country> findAll();
+
 }

@@ -35,6 +35,7 @@ public class    CountryService {
     public void createCountry(CountryRQ countryRQ) {
        try{
            Country country = this.transformCountryRQ(countryRQ);
+           country.setStatus("ACT");
            this.countryRepository.save(country);
        }catch (RuntimeException rte) {
            throw new RuntimeException(rte);

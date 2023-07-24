@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.GeoLocationRepository;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

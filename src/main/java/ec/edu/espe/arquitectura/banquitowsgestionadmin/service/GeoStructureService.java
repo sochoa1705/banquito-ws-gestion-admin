@@ -1,6 +1,5 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.service;
 
-import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoLocationRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructureRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.GeoStructureRS;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Country;
@@ -46,12 +45,14 @@ public class GeoStructureService {
                     List<GeoLocation> cantonList = this.geoLocationRepository.findGeoLocationByZipCode("200202");
                     geoStructure.setLocations(cantonList);
                     geoStructure.setState("ACT");
+                    geoStructure.setCountry(country);
                     this.geoStructureRepository.save(geoStructure);
                 }
                 case 3 -> {
                     List<GeoLocation> parishList = this.geoLocationRepository.findGeoLocationByZipCode("230303");
                     geoStructure.setLocations(parishList);
                     geoStructure.setState("ACT");
+                    geoStructure.setCountry(country);
                     this.geoStructureRepository.save(geoStructure);
                 }
                 default -> throw new RuntimeException("Error al crear la estructura geográfica");
@@ -62,20 +63,18 @@ public class GeoStructureService {
         }
     }
 
-    public GeoStructureRS findLocationParent(GeoLocationRQ locationRQ) {
+    public GeoStructureRS obtainStructureFromCountry(Integer levelCode, String countryCode) {
         try {
-            GeoLocation locationTemp = this.geoLocationService.transformLocationRQ(locationRQ);
-            GeoLocation location = this.geoLocationRepository.findGeoLocationByNameAndZipCode(locationTemp.getName(), locationTemp.getZipCode());
-            if (location != null) {
-                return this.responseGeoStructure(this.geoStructureRepository.findGeoStructureByLocations(location.getId()));
-            } else {
-                throw new RuntimeException("Error al obtener la información de ubicación");
-            }
+            GeoStructure geoStructure = this.geoStructureRepository.findByLevelCodeAndCountryCode(levelCode, countryCode);
+            GeoStructureRS response = responseGeoStructure(geoStructure);
+            return response;
         } catch (RuntimeException rte) {
-            throw new RuntimeException("Error al obtener la información de la estructura geográfica");
+            throw new RuntimeException("Error al obtener las provincias del país", rte);
         }
-
     }
+
+
+
 
 
     public GeoStructure transformGeoStructureRQ(GeoStructureRQ rq) {
@@ -92,6 +91,7 @@ public class GeoStructureService {
                 .builder()
                 .levelCode(geoStructure.getLevelCode())
                 .name(geoStructure.getName())
+                .country(geoStructure.getCountry())
                 .locations(geoStructure.getLocations())
                 .build();
         return geoStructureRS;
