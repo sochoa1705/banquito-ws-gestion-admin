@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'ws-gestionadmin'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9C0C5B5AB8764126AA86D957726441D3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A2AD32BE672A44E8A0A8B785B8651083 }}
           package: '*.jar'
