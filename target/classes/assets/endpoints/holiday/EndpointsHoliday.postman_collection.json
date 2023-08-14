@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "ab929282-0971-421c-93f7-22c03b1b4697",
+		"name": "EndpointsHoliday",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25342014"
+	},
+	"item": [
+		{
+			"name": "GenerateHolidays",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-generate?year=2022&month=10&saturday=true&sunday=true&codeCountry=ECU&idLocation=64b0a968466dc541f29fdb9e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-generate"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2022"
+						},
+						{
+							"key": "month",
+							"value": "10"
+						},
+						{
+							"key": "saturday",
+							"value": "true"
+						},
+						{
+							"key": "sunday",
+							"value": "true"
+						},
+						{
+							"key": "codeCountry",
+							"value": "ECU"
+						},
+						{
+							"key": "idLocation",
+							"value": "64b0a968466dc541f29fdb9e"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListHolidaysbyType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-list-type/NAT",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-list-type",
+						"NAT"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtainHoliday",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-get/83af1b54-2ff3-4f0f-97ae-691cc39cda90",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-get",
+						"83af1b54-2ff3-4f0f-97ae-691cc39cda90"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateHoliday",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uniqueId\": \"d4180107-a89b-4a7e-b6c0-8799873d1677\",\r\n  \"holidayDate\": \"2022-04-15T00:00:00.000Z\",\r\n  \"location\": {\r\n    \"id\": \"64b0a968466dc541f29fdb9e\",\r\n    \"name\": \"PICHINCHA\",\r\n    \"areaPhoneCode\": \"02\",\r\n    \"zipCode\": \"170101\",\r\n    \"locationParent\": \"\"\r\n  },\r\n  \"country\": {\r\n    \"id\": \"64b2f5cccc561e6d3b7ff1f6\",\r\n    \"code\": \"ECU\",\r\n    \"name\": \"Ecuador\",\r\n    \"phoneCode\": \"+593\"\r\n  },\r\n  \"name\": \"Viernes de Misa\",\r\n  \"type\": \"NAT\",\r\n  \"state\": \"ACT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateHoliday",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uniqueId\": \"9fc1cd7e-b654-4796-927f-9169605c99a6\",\r\n  \"holidayDate\": \"2022-04-15T00:00:00.000Z\",\r\n  \"location\": {\r\n    \"id\": \"64b0a968466dc541f29fdb9e\",\r\n    \"name\": \"PICHINCHA\",\r\n    \"areaPhoneCode\": \"02\",\r\n    \"zipCode\": \"170101\",\r\n    \"locationParent\": \"\"\r\n  },\r\n  \"country\": {\r\n    \"id\": \"64b2f5cccc561e6d3b7ff1f6\",\r\n    \"code\": \"ECU\",\r\n    \"name\": \"Ecuador\",\r\n    \"phoneCode\": \"+593\"\r\n  },\r\n  \"name\": \"Viernes de descanzo\",\r\n  \"type\": \"REG\",\r\n  \"state\": \"ACT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogicDeleteHoliday",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-delete/ff071a9c-ec03-4564-a8b7-4ec54a00b052",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-delete",
+						"ff071a9c-ec03-4564-a8b7-4ec54a00b052"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListHolidaysbyName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-list-name/Viernes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-list-name",
+						"Viernes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListHolidaysbyDates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/holiday/holiday-list-between-dates?start=2022-01-15T00:00:00.000Z&end=2023-01-15T00:00:00.000Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"holiday",
+						"holiday-list-between-dates"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2022-01-15T00:00:00.000Z"
+						},
+						{
+							"key": "end",
+							"value": "2023-01-15T00:00:00.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

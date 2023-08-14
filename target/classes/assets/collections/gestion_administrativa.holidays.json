@@ -1,0 +1,602 @@
+[{
+  "_id": {
+    "$oid": "64b193ffc9b3e5f950657cda"
+  },
+  "uniqueId": "9fc1cd7e-b654-4796-927f-9169605c99a6",
+  "holidayDate": {
+    "$date": "2022-04-15T00:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "Viernes de descanzo",
+  "type": "REG",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b638a72edd2e63558f60d1"
+  },
+  "uniqueId": "83af1b54-2ff3-4f0f-97ae-691cc39cda90",
+  "holidayDate": {
+    "$date": "2022-04-15T00:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "Viernes de disco",
+  "type": "NAT",
+  "state": "INA"
+},
+{
+  "_id": {
+    "$oid": "64b646d9a7ecc17a3503bc81"
+  },
+  "uniqueId": "ff071a9c-ec03-4564-a8b7-4ec54a00b052",
+  "holidayDate": {
+    "$date": "2022-04-15T00:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "Viernes de Misa",
+  "type": "NAT",
+  "state": "INA"
+},
+{
+  "_id": {
+    "$oid": "64b64c2d6ffd37682b9ee8bd"
+  },
+  "uniqueId": "b1d28879-f574-4714-8565-6ffd9ec2ec37",
+  "holidayDate": {
+    "$date": "2022-11-06T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64c2d6ffd37682b9ee8be"
+  },
+  "uniqueId": "b2f7f29e-60fb-4886-acac-438d767977c9",
+  "holidayDate": {
+    "$date": "2022-11-13T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64c2d6ffd37682b9ee8bf"
+  },
+  "uniqueId": "e5c7fe31-7747-4216-b0f3-60794f8141ea",
+  "holidayDate": {
+    "$date": "2022-11-20T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64c2d6ffd37682b9ee8c0"
+  },
+  "uniqueId": "be7fefc3-b138-432e-b967-704b1f7ce657",
+  "holidayDate": {
+    "$date": "2022-11-27T05:00:00.000Z"
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "REG",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64c4b6ffd37682b9ee8c1"
+  },
+  "uniqueId": "c245c645-7129-4edc-8cd2-a007a5c830b0",
+  "holidayDate": {
+    "$date": "2022-11-06T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64c4b6ffd37682b9ee8c2"
+  },
+  "uniqueId": "5104bcaf-0a4c-42a6-a2bf-777a90b32103",
+  "holidayDate": {
+    "$date": "2022-11-13T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64c4b6ffd37682b9ee8c3"
+  },
+  "uniqueId": "aaa2dac7-3d4f-4d62-83ef-8616e8438244",
+  "holidayDate": {
+    "$date": "2022-11-20T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64c4b6ffd37682b9ee8c4"
+  },
+  "uniqueId": "1f07c21a-8c77-4328-a161-8a3756493f73",
+  "holidayDate": {
+    "$date": "2022-11-27T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64cc06ffd37682b9ee8c9"
+  },
+  "uniqueId": "55728bb0-c836-4050-9e32-e239d6565bbe",
+  "holidayDate": {
+    "$date": "2022-11-05T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8d5"
+  },
+  "uniqueId": "ccfb40b1-7433-4586-850a-d0336c22c3c0",
+  "holidayDate": {
+    "$date": "2022-10-01T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8d6"
+  },
+  "uniqueId": "9b37853b-8766-4376-b873-3d00bbd76954",
+  "holidayDate": {
+    "$date": "2022-10-02T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8d7"
+  },
+  "uniqueId": "0a493304-4eeb-4d5e-95d6-f79593d9b24c",
+  "holidayDate": {
+    "$date": "2022-10-08T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8d8"
+  },
+  "uniqueId": "272f5a2c-db00-4561-9394-3b9f7a76fd21",
+  "holidayDate": {
+    "$date": "2022-10-09T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8d9"
+  },
+  "uniqueId": "18063e38-aad3-44be-b0e9-f59114af9a91",
+  "holidayDate": {
+    "$date": "2022-10-15T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8da"
+  },
+  "uniqueId": "85360cef-01bd-4f66-b13d-e74220f631e4",
+  "holidayDate": {
+    "$date": "2022-10-16T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8db"
+  },
+  "uniqueId": "4d000cd9-4220-4ba1-b8dd-1789ca78ebfb",
+  "holidayDate": {
+    "$date": "2022-10-22T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8dc"
+  },
+  "uniqueId": "0bab7e1b-4e73-4c71-bece-dba541df3390",
+  "holidayDate": {
+    "$date": "2022-10-23T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8dd"
+  },
+  "uniqueId": "61ee609c-9cea-4dfb-a8f4-dea47647fa9f",
+  "holidayDate": {
+    "$date": "2022-10-29T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SATURDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+},
+{
+  "_id": {
+    "$oid": "64b64ce56ffd37682b9ee8de"
+  },
+  "uniqueId": "6e895f62-70ec-46d7-9675-9b6288ab32d1",
+  "holidayDate": {
+    "$date": "2022-10-30T05:00:00.000Z"
+  },
+  "location": {
+    "_id": {
+      "$oid": "64b0a968466dc541f29fdb9e"
+    },
+    "name": "PICHINCHA",
+    "areaPhoneCode": "02",
+    "zipCode": "170101",
+    "locationParent": ""
+  },
+  "country": {
+    "_id": {
+      "$oid": "64b2f5cccc561e6d3b7ff1f6"
+    },
+    "code": "ECU",
+    "name": "Ecuador",
+    "phoneCode": "+593"
+  },
+  "name": "SUNDAY WEEKEND",
+  "type": "NAT",
+  "state": "ACT"
+}]
