@@ -1,10 +1,14 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class BranchRQ {
     private String locationId;

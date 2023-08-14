@@ -16,8 +16,6 @@ public class BankEntityService {
 
     private final BankEntityRepository bankEntityRepository;
 
-
-
     public BankEntityService(BankEntityRepository bankEntityRepository){
         this.bankEntityRepository = bankEntityRepository;
     }
@@ -89,12 +87,11 @@ public class BankEntityService {
                         branch.setEmailAddress(branchRQ.getEmailAddress());
                         branch.setPhoneNumber(branchRQ.getPhoneNumber());
                         branchUpdated = true;
-                        break; // Salir del bucle una vez que se actualiza la sucursal
+                        break;
                     }
                 }
 
                 if (!branchUpdated) {
-                    // Si no se actualizó ninguna sucursal existente, entonces se debe agregar la nueva sucursal
                     Branch newBranch = this.transformBranchRQ(branchRQ);
                     branchList.add(newBranch);
                 }

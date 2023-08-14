@@ -1,11 +1,16 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.model;
 
 import java.util.Date;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Branch {
 
