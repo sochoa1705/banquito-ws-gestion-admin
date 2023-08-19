@@ -66,6 +66,10 @@ public class GeoStructureService {
     public GeoStructureRS obtainStructureFromCountry(Integer levelCode, String countryCode) {
         try {
             GeoStructure geoStructure = this.geoStructureRepository.findByLevelCodeAndCountryCode(levelCode, countryCode);
+            if (geoStructure == null) {
+                // Manejar el caso en que no se encuentra ningún resultado
+                return null;
+            }
             GeoStructureRS response = responseGeoStructure(geoStructure);
             return response;
         } catch (RuntimeException rte) {

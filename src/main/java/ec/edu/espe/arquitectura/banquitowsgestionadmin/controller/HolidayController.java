@@ -36,8 +36,9 @@ public class HolidayController {
 
     @GetMapping("/holiday-list-between-dates")
     public ResponseEntity<List<HolidayRS>> getHolidaysBetweenDates(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX") Date start,
-                                                                   @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX") Date end) {
-        List<HolidayRS> holidayList = this.holidayService.getHolidaysBetweenDates(start, end);
+                                                                   @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX") Date end,
+                                                                   @RequestParam String country) {
+        List<HolidayRS> holidayList = this.holidayService.getHolidaysBetweenDates(start, end, country);
         return ResponseEntity.ok(holidayList);
     }
 
@@ -48,9 +49,10 @@ public class HolidayController {
     }
 
     @PostMapping("/holiday-create")
-    public ResponseEntity<?> createHoliday(@RequestBody HolidayRQ holidayRQ){
+    public ResponseEntity<?> createHoliday(@RequestBody HolidayRQ holidayRQ, @RequestParam String codeCountry,
+                                            @RequestParam String idLocation){
         try{
-            this.holidayService.createHoliday(holidayRQ);
+            this.holidayService.createHoliday(holidayRQ, codeCountry, idLocation);
             return ResponseEntity.ok().build();
         }catch (RuntimeException rte){
             return ResponseEntity.badRequest().build();
@@ -79,6 +81,16 @@ public class HolidayController {
         try{
             HolidayRS rs = this.holidayService.updateHoliday(holidayRQ);
             return ResponseEntity.ok(rs);
+        }catch (RuntimeException rte){
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PutMapping("/holiday-activate/{id}")
+    public ResponseEntity<HolidayRS> activateHoliday(@PathVariable String id){
+        try{
+            HolidayRS rs = this.holidayService.logicActivateHoliday(id);
+            return ResponseEntity.ok().body(rs);
         }catch (RuntimeException rte){
             return ResponseEntity.badRequest().build();
         }

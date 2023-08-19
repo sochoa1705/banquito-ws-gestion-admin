@@ -45,8 +45,9 @@ public class HolidayService {
         return this.transformToHolidaysRS(holidayList);
     }
 
-    public List<HolidayRS> getHolidaysBetweenDates(Date start, Date end){
-        List<Holiday> holidayList = this.holidayRepository.findByHolidayDateBetween(start, end);
+    public List<HolidayRS> getHolidaysBetweenDates(Date start, Date end, String countryCode){
+        Country country = this.countryRepository.findByCode(countryCode);
+        List<Holiday> holidayList = this.holidayRepository.findByHolidayDateBetweenAndCountry(start, end, country);
         return this.transformToHolidaysRS(holidayList);
     }
 
@@ -63,11 +64,15 @@ public class HolidayService {
         }
     }
 
-    public void createHoliday(HolidayRQ holidayRQ){
+    public void createHoliday(HolidayRQ holidayRQ, String codeCountry, String idLocation){
         try{
+            Optional<GeoLocation> geoLocation = this.geoLocationRepository.findById(idLocation);
+            Country country = this.countryRepository.findByCode(codeCountry);
             Holiday holidayRequest = this.transformHolidayRQ(holidayRQ);
             Holiday optionalHoliday = this.holidayRepository.findByUniqueId(holidayRequest.getUniqueId());
-            if(optionalHoliday == null){
+            if(optionalHoliday == null && country != null){
+                if(geoLocation.isPresent()) holidayRequest.setLocation(geoLocation.get());
+                holidayRequest.setCountry(country);
                 holidayRequest.setUniqueId(UUID.randomUUID().toString());
                 holidayRequest.setState("ACT");
                 this.holidayRepository.save(holidayRequest);
@@ -101,6 +106,20 @@ public class HolidayService {
             Holiday holiday = this.holidayRepository.findByUniqueIdAndState(uuid,"ACT");
             if(holiday != null){
                 holiday.setState("INA");
+                return this.transformHolidayRS(this.holidayRepository.save(holiday));
+            }else{
+                throw new RuntimeException("Holiday don't found!");
+            }
+        }catch(RuntimeException rte){
+            throw rte;
+        }
+    }
+
+    public HolidayRS logicActivateHoliday(String uuid){
+        try{
+            Holiday holiday = this.holidayRepository.findByUniqueIdAndState(uuid, "INA");
+            if(holiday != null){
+                holiday.setState("ACT");
                 return this.transformHolidayRS(this.holidayRepository.save(holiday));
             }else{
                 throw new RuntimeException("Holiday don't found!");
@@ -161,7 +180,7 @@ public class HolidayService {
                 .holidayDate(Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .location(location)
                 .country(country)
-                .name(date.getDayOfWeek() == DayOfWeek.SATURDAY ? "SATURDAY WEEKEND" : "SUNDAY WEEKEND")
+                .name(date.getDayOfWeek() == DayOfWeek.SATURDAY ? "Feriado Sábado" : "Feriado Domingo")
                 .type(getType(country, location))
                 .state("ACT").build();
     }
@@ -172,7 +191,7 @@ public class HolidayService {
                 .holidayDate(Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .location(null)
                 .country(country)
-                .name(date.getDayOfWeek() == DayOfWeek.SATURDAY ? "SATURDAY WEEKEND" : "SUNDAY WEEKEND")
+                .name(date.getDayOfWeek() == DayOfWeek.SATURDAY ? "Feriado Sábado" : "Feriado Domingo")
                 .type("REG")
                 .state("ACT").build();
     }

@@ -1,5 +1,6 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.repository;
 
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Country;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -13,7 +14,7 @@ public interface HolidayRepository extends MongoRepository<Holiday, String> {
     List<Holiday> findByNameLike(String name);
     List<Holiday> findByType(String type);
 
-    List<Holiday> findByHolidayDateBetween(Date startDate, Date endDate);
+    List<Holiday> findByHolidayDateBetweenAndCountry(Date startDate, Date endDate, Country country);
 
     Holiday findByUniqueId(String uniqueId);
 
