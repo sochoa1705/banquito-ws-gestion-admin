@@ -1,10 +1,15 @@
 package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto;
 
 import java.util.Date;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class BranchRS {
     private String locationId;
@@ -19,4 +24,5 @@ public class BranchRS {
     private String line2;
     private Float latitude;
     private Float longitude;
+    private String codeNumber;
 }

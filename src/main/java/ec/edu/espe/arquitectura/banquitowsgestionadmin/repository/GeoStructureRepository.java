@@ -15,5 +15,6 @@ public interface GeoStructureRepository extends MongoRepository<GeoStructure, St
     GeoStructure findByLevelCodeAndCountryCode(Integer levelCode,String countryCode);
 
     GeoStructure findByCountryAndLocationsContaining(Country country, GeoLocation geoLocation);
+    GeoStructure findByLocations_Id(String locationId);
 
 }

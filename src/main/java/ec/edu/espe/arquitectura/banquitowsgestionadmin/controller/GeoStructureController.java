@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/v1/geo-structure")
 public class GeoStructureController {
     private final GeoStructureService geoStructureService;
@@ -21,7 +22,7 @@ public class GeoStructureController {
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/provinces/{countryCode}")
+    @GetMapping("/locations/{countryCode}")
     public ResponseEntity<GeoStructureRS> obtainProvincesFromCountry(@RequestParam Integer levelCode, @PathVariable String countryCode) {
         GeoStructureRS geoStructureRS = this.geoStructureService.obtainStructureFromCountry(levelCode, countryCode);
         return ResponseEntity.ok().body(geoStructureRS);

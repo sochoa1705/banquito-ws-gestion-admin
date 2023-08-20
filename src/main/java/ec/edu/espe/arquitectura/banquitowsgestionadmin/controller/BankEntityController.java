@@ -3,6 +3,8 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.controller;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.BranchRQ;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.controller.dto.BranchRS;
 import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.Branch;
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.CountryAndBranchCode;
+import ec.edu.espe.arquitectura.banquitowsgestionadmin.model.GeoStructure;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +36,28 @@ public class BankEntityController {
     public ResponseEntity<List<BranchRS>> findBranchesByBankEntityId(@PathVariable("bankEntityId") String id){
         List<BranchRS> rs = this.service.listAllBranchesByEntity(id);
         return ResponseEntity.ok(rs);
+    }
+
+    @GetMapping("/branch-geoLocation/{bankEntityId}/{branchUniqueKey}")
+    public ResponseEntity<String> getGeoLocationNameByBranchUniqueKey(@PathVariable("bankEntityId") String bankEntityId,
+                                                                      @PathVariable String branchUniqueKey) {
+        String geoLocationName = this.service.getGeoLocationNameByBranchUniqueKey(bankEntityId, branchUniqueKey);
+
+        if (geoLocationName != null) {
+            return ResponseEntity.ok(geoLocationName);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/branch-geoStructure/{branchUniqueKey}")
+    public ResponseEntity<CountryAndBranchCode> getCountryAndBranchCode(@PathVariable String branchUniqueKey) {
+        CountryAndBranchCode countryAndBranchCode = this.service.getCountryAndBranchCodeByBranchUniqueKey(branchUniqueKey);
+        if (countryAndBranchCode != null) {
+            return ResponseEntity.ok(countryAndBranchCode);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/branch-unique/{bankEntityId}/{branchId}")

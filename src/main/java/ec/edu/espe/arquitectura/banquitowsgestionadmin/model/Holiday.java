@@ -2,6 +2,8 @@ package ec.edu.espe.arquitectura.banquitowsgestionadmin.model;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -11,6 +13,8 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Document(collection = "holidays")
 @CompoundIndex(name = "holiday_index", def = "{'holidayDate': 1, 'name': 1, 'type': 1, 'state': 1}", unique = true)
