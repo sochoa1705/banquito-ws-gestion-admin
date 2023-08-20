@@ -11,6 +11,7 @@ import ec.edu.espe.arquitectura.banquitowsgestionadmin.repository.GeoStructureRe
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,33 +36,46 @@ public class GeoStructureService {
             Country country = this.countryRepository.findByCode(countryCode);
             switch (geoStructure.getLevelCode()) {
                 case 1 -> {
-                    List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCode("170101");
+                    List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCodeAndLocationParent("100101", country.getCode());
                     geoStructure.setLocations(provinceList);
                     geoStructure.setState("ACT");
                     geoStructure.setCountry(country);
                     this.geoStructureRepository.save(geoStructure);
                 }
                 case 2 -> {
-                    List<GeoLocation> cantonList = this.geoLocationRepository.findGeoLocationByZipCode("200202");
-                    geoStructure.setLocations(cantonList);
-                    geoStructure.setState("ACT");
-                    geoStructure.setCountry(country);
-                    this.geoStructureRepository.save(geoStructure);
-                }
-                case 3 -> {
-                    List<GeoLocation> parishList = this.geoLocationRepository.findGeoLocationByZipCode("230303");
-                    geoStructure.setLocations(parishList);
-                    geoStructure.setState("ACT");
-                    geoStructure.setCountry(country);
-                    this.geoStructureRepository.save(geoStructure);
-                }
-                default -> throw new RuntimeException("Error al crear la estructura geográfica");
+                    List<GeoLocation> cantons = this.geoLocationRepository.findGeoLocationByZipCode("200202");
+                    List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCodeAndLocationParent("100101", country.getCode());
+                    List<GeoLocation> cantonList = new ArrayList<>();
+                    for (GeoLocation ctns : cantons) {
+                        for (GeoLocation prv : provinceList) {
+                            if (ctns.getLocationParent().equals(prv.getId())) {
+                                cantonList.add(ctns);
+                            }
+                        }
+                    }
+                geoStructure.setLocations(cantonList);
+                geoStructure.setState("ACT");
+                geoStructure.setCountry(country);
+                this.geoStructureRepository.save(geoStructure);
             }
-
-        } catch (RuntimeException rte) {
-            throw new RuntimeException("Error al crear la estructura geográfica", rte);
+            case 3 -> {
+                List<GeoLocation> parishList = this.geoLocationRepository.findGeoLocationByZipCode("230303");
+                geoStructure.setLocations(parishList);
+                geoStructure.setState("ACT");
+                geoStructure.setCountry(country);
+                this.geoStructureRepository.save(geoStructure);
+            }
+            default -> throw new RuntimeException("Error al crear la estructura geográfica");
         }
+
+    } catch(
+    RuntimeException rte)
+
+    {
+        throw new RuntimeException("Error al crear la estructura geográfica", rte);
     }
+
+}
 
     public GeoStructureRS obtainStructureFromCountry(Integer levelCode, String countryCode) {
         try {
@@ -72,9 +86,6 @@ public class GeoStructureService {
             throw new RuntimeException("Error al obtener las provincias del país", rte);
         }
     }
-
-
-
 
 
     public GeoStructure transformGeoStructureRQ(GeoStructureRQ rq) {

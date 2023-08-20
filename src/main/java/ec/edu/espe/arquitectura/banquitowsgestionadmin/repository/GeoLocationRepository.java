@@ -7,6 +7,10 @@ import java.util.List;
 
 
 public interface GeoLocationRepository extends MongoRepository<GeoLocation, String> {
+
     List<GeoLocation> findGeoLocationByZipCode(String zipCode);
+    List<GeoLocation> findGeoLocationByZipCodeAndLocationParent(String zipCode, String locationParent);
+
+
 
 }
