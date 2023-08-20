@@ -6,7 +6,7 @@
   "internationalCode": "BQUIEC01",
   "branches": [
     {
-      "locationId": "146",
+      "locationId": "64b0a7be466dc541f29fdb8e",
       "code": "BQUIEC17SL",
       "name": "BanQuito New Update",
       "uniqueKey": "c81b6e7a-9a9f-4d2e-8a51-7fdca2ef1f29",
@@ -23,7 +23,7 @@
       "codeNumber": "001"
     },
     {
-      "locationId": "152",
+      "locationId": "64b0a968466dc541f29fdb9e",
       "code": "BQUIEC17EL",
       "name": "BanQuito El Recreo",
       "uniqueKey": "e493e2d3-685d-4e56-87c6-9b3c7418e90c",
@@ -40,7 +40,7 @@
       "codeNumber": "002"
     },
     {
-      "locationId": "168",
+      "locationId": "64b0a968466dc541f29fdb9e",
       "code": "BQUIEC17QN",
       "name": "BanQuito Quicentro Norte",
       "uniqueKey": "1a8e7459-6b0f-4a54-aeae-89280e8eb641",
@@ -57,7 +57,7 @@
       "codeNumber": "003"
     },
     {
-      "locationId": "172",
+      "locationId": "64b0a968466dc541f29fdb9e",
       "code": "BQUIEC17QS",
       "name": "BanQuito Quicentro Sur",
       "uniqueKey": "77f9c2a4-9923-419b-9b2b-bdc206617123",
@@ -74,7 +74,7 @@
       "codeNumber": "004"
     },
     {
-      "locationId": "180",
+      "locationId": "64b0a968466dc541f29fdb9e",
       "code": "BQUIEC17EP",
       "name": "BanQuito El Portal",
       "uniqueKey": "d6e1f8c7-4c85-46b3-a4d3-af7214fe70db",
@@ -91,24 +91,7 @@
       "codeNumber": "005"
     },
     {
-      "locationId": "180",
-      "code": "BQUIEC17EP",
-      "name": "BanQuito El Portal",
-      "uniqueKey": "d6e1f8c7-4c85-46b3-a4d3-af7214fe70db",
-      "state": "INA",
-      "creationDate": {
-        "$date": "2020-01-21T17:45:03.126Z"
-      },
-      "emailAddress": "el_portal@banquito.com",
-      "phoneNumber": "1530817811",
-      "line1": "Av. Simón Bolívar, Panamericana Norte",
-      "line2": "Calle Capitán Giovanni Calles",
-      "latitude": 453.54998779296875,
-      "longitude": -130.11109924316406,
-      "codeNumber": "006"
-    },
-    {
-      "locationId": "146",
+      "locationId": "64b0a968466dc541f29fdb9e",
       "code": "BQUIEC17SL",
       "name": "BanQuito Nueva Nueva Branch",
       "uniqueKey": "c81b6e7a-9a9f-4d2e-8a51-7fdca2ef1a03",
