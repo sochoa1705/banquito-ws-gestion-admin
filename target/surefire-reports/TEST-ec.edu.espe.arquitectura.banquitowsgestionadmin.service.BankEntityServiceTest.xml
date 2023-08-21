@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="ec.edu.espe.arquitectura.banquitowsgestionadmin.service.BankEntityServiceTest" time="2.34" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="idea.version" value="2023.1.4"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="java.vm.version" value="17.0.7+7"/>
+    <property name="sun.boot.library.path" value="C:\jdk17\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\Documentos\ESPE\Arquitectura de Software\Correciones\banquito-ws-gestion-admin-main"/>
+    <property name="java.vm.vendor" value="Eclipse Adoptium"/>
+    <property name="java.vendor.url" value="https://adoptium.net/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="EC"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\Documentos\ESPE\Arquitectura de Software\Correciones\banquito-ws-gestion-admin-main"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="java.runtime.version" value="17.0.7+7"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\jeffe\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="maven.ext.class.path" value="D:\Programas\JetBrains\IntelliJ IDEA 2023.1.4\plugins\maven\lib\maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="C:\Users\jeffe\.m2\wrapper\dists\apache-maven-3.9.3-bin\54p6kc7m0ap3os8bc4ge28ia2\apache-maven-3.9.3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\jdk17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\jdk17\bin;D:\Programas\VMware\bin\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\Programas\google-cloud-sdk\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\jeffe\AppData\Local\Microsoft\WindowsApps;C:\Users\jeffe\AppData\Local\Programs\Python\Python311;D:\Programas\Microsoft VS Code\Microsoft VS Code\bin;C:\Users\jeffe\AppData\Local\GitHubDesktop\bin;C:\Program Files\MariaDB 11.0\bin;C:\jdk17\bin;C:\mongosh-1.10.1\bin;C:\Program Files\MongoDB\Server\6.0\bin;C:\Users\jeffe\AppData\Roaming\npm;."/>
+    <property name="jansi.passthrough" value="true"/>
+    <property name="maven.conf" value="C:\Users\jeffe\.m2\wrapper\dists\apache-maven-3.9.3-bin\54p6kc7m0ap3os8bc4ge28ia2\apache-maven-3.9.3/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="61.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\jeffe"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="17"/>
+    <property name="user.name" value="jeffe"/>
+    <property name="java.class.path" value="C:\Users\jeffe\.m2\wrapper\dists\apache-maven-3.9.3-bin\54p6kc7m0ap3os8bc4ge28ia2\apache-maven-3.9.3\boot\plexus-classworlds-2.7.0.jar;C:\Users\jeffe\.m2\wrapper\dists\apache-maven-3.9.3-bin\54p6kc7m0ap3os8bc4ge28ia2\apache-maven-3.9.3\boot\plexus-classworlds.license"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2023.1.4 package"/>
+    <property name="java.home" value="C:\jdk17"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="17.0.7"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Eclipse Adoptium"/>
+    <property name="maven.home" value="C:\Users\jeffe\.m2\wrapper\dists\apache-maven-3.9.3-bin\54p6kc7m0ap3os8bc4ge28ia2\apache-maven-3.9.3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2023-04-18"/>
+    <property name="java.vendor.url.bug" value="https://github.com/adoptium/adoptium-support/issues"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="Temurin-17.0.7+7"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="BankEntityService_AddBranch_Success" classname="ec.edu.espe.arquitectura.banquitowsgestionadmin.service.BankEntityServiceTest" time="0.571"/>
+</testsuite>

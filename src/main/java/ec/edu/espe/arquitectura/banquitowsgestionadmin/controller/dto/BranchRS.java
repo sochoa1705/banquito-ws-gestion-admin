@@ -24,4 +24,5 @@ public class BranchRS {
     private String line2;
     private Float latitude;
     private Float longitude;
+    private String codeNumber;
 }

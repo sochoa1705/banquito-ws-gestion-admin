@@ -13,4 +13,5 @@ public interface BankEntityRepository extends MongoRepository<BankEntity, String
     
     BankEntity findBankEntityByIdAndInternationalCode(String id, String internationalCode);
 
+
 }

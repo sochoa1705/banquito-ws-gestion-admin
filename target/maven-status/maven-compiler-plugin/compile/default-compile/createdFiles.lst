@@ -4,6 +4,7 @@ ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\GeoStructureRQ$Ge
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\HolidayRQ$HolidayRQBuilder.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\GeoLocationController.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\HolidayController.class
+ec\edu\espe\arquitectura\banquitowsgestionadmin\model\CountryAndBranchCode.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\repository\CountryRepository.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\GeoStructureRS.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\model\GeoLocation.class
@@ -22,6 +23,7 @@ ec\edu\espe\arquitectura\banquitowsgestionadmin\model\GeoLocation$GeoLocationBui
 ec\edu\espe\arquitectura\banquitowsgestionadmin\service\CountryService.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\model\BankEntity$BankEntityBuilder.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\repository\BankEntityRepository.class
+ec\edu\espe\arquitectura\banquitowsgestionadmin\model\CountryAndBranchCode$CountryAndBranchCodeBuilder.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\GeoLocationRQ.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\BankEntityRQ$BankEntityRQBuilder.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\service\BankEntityService.class
@@ -42,6 +44,7 @@ ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\BranchRS.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\GeoStructureRS$GeoStructureRSBuilder.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\service\HolidayService.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\CountryController.class
+ec\edu\espe\arquitectura\banquitowsgestionadmin\repository\BranchRepository.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\GeoLocationRQ$GeoLocationRQBuilder.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\controller\dto\GeoStructureRQ.class
 ec\edu\espe\arquitectura\banquitowsgestionadmin\model\GeoStructure$GeoStructureBuilder.class
