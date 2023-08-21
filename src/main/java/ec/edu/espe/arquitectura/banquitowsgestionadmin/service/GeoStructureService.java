@@ -36,7 +36,7 @@ public class GeoStructureService {
             Country country = this.countryRepository.findByCode(countryCode);
             switch (geoStructure.getLevelCode()) {
                 case 1 -> {
-                    List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCodeAndLocationParent("100101", country.getCode());
+                    List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCodeAndLocationParent("170101", country.getCode());
                     geoStructure.setLocations(provinceList);
                     geoStructure.setState("ACT");
                     geoStructure.setCountry(country);
@@ -44,7 +44,7 @@ public class GeoStructureService {
                 }
                 case 2 -> {
                     List<GeoLocation> cantons = this.geoLocationRepository.findGeoLocationByZipCode("200202");
-                    List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCodeAndLocationParent("100101", country.getCode());
+                    List<GeoLocation> provinceList = this.geoLocationRepository.findGeoLocationByZipCodeAndLocationParent("170101", country.getCode());
                     List<GeoLocation> cantonList = new ArrayList<>();
                     for (GeoLocation ctns : cantons) {
                         for (GeoLocation prv : provinceList) {
@@ -59,7 +59,16 @@ public class GeoStructureService {
                 this.geoStructureRepository.save(geoStructure);
             }
             case 3 -> {
-                List<GeoLocation> parishList = this.geoLocationRepository.findGeoLocationByZipCode("230303");
+                List<GeoLocation> parishes = this.geoLocationRepository.findGeoLocationByZipCode("230303");
+                List<GeoLocation> cantonList = this.geoLocationRepository.findGeoLocationByZipCode("200202");
+                List<GeoLocation> parishList = new ArrayList<>();
+                for (GeoLocation prsh : parishes) {
+                    for (GeoLocation ctns : cantonList) {
+                        if (prsh.getLocationParent().equals(ctns.getId())) {
+                            parishList.add(prsh);
+                        }
+                    }
+                }
                 geoStructure.setLocations(parishList);
                 geoStructure.setState("ACT");
                 geoStructure.setCountry(country);
