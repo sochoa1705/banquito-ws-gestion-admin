@@ -23,6 +23,11 @@ public class    CountryService {
         return this.transformCountry(country);
     }
 
+    public CountryRS obtainByName(String countryName) {
+        Country country = this.countryRepository.findByName(countryName);
+        return this.transformCountry(country);
+    }
+
     public List<CountryRS> getAllCountries(){
         List<Country> countries = this.countryRepository.findAll();
         List<CountryRS> countriesList = new ArrayList<>();
@@ -65,9 +70,8 @@ public class    CountryService {
 
     public CountryRS logicDelete(String id){
         try {
-            Optional<Country> countryOptional = this.countryRepository.findById(id);
-            if(countryOptional.isPresent()) {
-                Country countryLogicDelete = countryOptional.get();
+            Country countryLogicDelete = this.countryRepository.findByCode(id);
+            if(countryLogicDelete != null) {
                 countryLogicDelete.setStatus("INA");
                 this.countryRepository.save(countryLogicDelete);
                 return this.transformCountry(countryLogicDelete);
