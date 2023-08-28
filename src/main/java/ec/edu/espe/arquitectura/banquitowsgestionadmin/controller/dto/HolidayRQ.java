@@ -14,7 +14,6 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 public class HolidayRQ {
-
     private Date holidayDate;
     private String uniqueId;
     private GeoLocation location;

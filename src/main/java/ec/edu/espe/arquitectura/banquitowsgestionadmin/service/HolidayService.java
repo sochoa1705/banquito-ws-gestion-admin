@@ -36,15 +36,6 @@ public class HolidayService {
         this.geoStructureRepository = geoStructureRepository;
     }
 
-    public List<HolidayRS> getHolidaysByName(String name){
-        List <Holiday> holidayList = this.holidayRepository.findByNameLike(name);
-        return this.transformToHolidaysRS(holidayList);
-    }
-    public List<HolidayRS> getHolidaysByType(String type) {
-        List <Holiday> holidayList = this.holidayRepository.findByType(type);
-        return this.transformToHolidaysRS(holidayList);
-    }
-
     public List<HolidayRS> getHolidaysBetweenDates(Date start, Date end, String countryCode){
         Country country = this.countryRepository.findByCode(countryCode);
         List<Holiday> holidayList = this.holidayRepository.findByHolidayDateBetweenAndCountry(start, end, country);

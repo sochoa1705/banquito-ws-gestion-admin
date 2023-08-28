@@ -22,18 +22,6 @@ public class HolidayController {
         this.holidayService = holidayService;
     }
 
-    @GetMapping("/holiday-list-type/{type}")
-    public ResponseEntity<List<HolidayRS>> getHolidaysByType(@PathVariable(name = "type") String type) {
-        List<HolidayRS> holidays = this.holidayService.getHolidaysByType(type);
-        return ResponseEntity.ok(holidays);
-    }
-
-    @GetMapping("/holiday-list-name/{name}")
-    public ResponseEntity<List<HolidayRS>> getHolidaysByName(@PathVariable(name = "name") String name) {
-        List<HolidayRS> holidays = this.holidayService.getHolidaysByName(name);
-        return ResponseEntity.ok(holidays);
-    }
-
     @GetMapping("/holiday-list-between-dates")
     public ResponseEntity<List<HolidayRS>> getHolidaysBetweenDates(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX") Date start,
                                                                    @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX") Date end,
